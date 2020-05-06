@@ -1,0 +1,9 @@
+\babel@toc {polish}{}
+\contentsline {section}{\numberline {1}Cel projektu}{2}{section.1}
+\contentsline {section}{\numberline {2}Wst\IeC {\k e}p}{2}{section.2}
+\contentsline {section}{\numberline {3}Wst\IeC {\k e}p teoretyczny}{2}{section.3}
+\contentsline {section}{\numberline {4}Architektury dla SISR}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}SRCNN}{4}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Wyniki dzia\IeC {\l }ania algorytmu}{6}{subsubsection.4.1.1}
+\contentsline {subsection}{\numberline {4.2}EDSR}{6}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Wyniki dzia\IeC {\l }ania algorytmu}{6}{subsubsection.4.2.1}

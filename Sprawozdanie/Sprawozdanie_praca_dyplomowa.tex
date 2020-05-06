@@ -1,0 +1,188 @@
+% !TeX spellcheck = ru_RU
+\documentclass[a4paper,11pt, notitlepage ]{article}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{kantlipsum}
+\usepackage{mwe}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{listings}
+\usepackage{spverbatim}
+\usepackage{geometry}
+
+\usepackage{listings}
+\usepackage{color}
+
+\usepackage{url}
+\usepackage{hyperref}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{Strona \thepage  \hspace{1pt} z \pageref{LastPage}}
+\lhead{Projekt dyplomowy}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=black,
+}
+
+\begin{document}
+	
+	\begin{titlepage}
+		
+		\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+		
+		\center % Center everything on the page
+		
+		%----------------------------------------------------------------------------------------
+		%	HEADING SECTIONS
+		%----------------------------------------------------------------------------------------
+		
+		\textsc{\LARGE Politechnika Warszawska}\\[1.5cm] % Name of your university/college
+		\textsc{\Large Wydział Elektryczny }\\[0.5cm] % Major heading such as course name
+		\textsc{\large Kierunek Informatyka }\\[0.5cm] % Minor heading such as course title
+		
+		%----------------------------------------------------------------------------------------
+		%	TITLE SECTION
+		%----------------------------------------------------------------------------------------
+		
+		\HRule \\[0.4cm]
+		{ \huge \bfseries Wykorzystanie głębokich sieci neuronowych do poprawy rozdzielczości zdjęć twarzy. }\\[0.3cm] % Title of your document
+		\HRule \\[1.5cm]
+		
+		%----------------------------------------------------------------------------------------
+		%	AUTHOR SECTION
+		%----------------------------------------------------------------------------------------
+		
+		\begin{minipage}{0.4\textwidth}
+			\begin{flushleft} \large
+				\emph{Wykonał:}\\
+				Aliaksandr \textsc{Karolik} % Your name
+			\end{flushleft}
+		\end{minipage}
+		~
+		\begin{minipage}{0.4\textwidth}
+			\begin{flushright} \large
+				\emph{Promotor:} \\
+				dr inż. Grzegorz \textsc{Sarwas} % Supervisor's Name
+			\end{flushright}
+		\end{minipage}\\[2cm]
+		
+		% If you don't want a supervisor, uncomment the two lines below and remove the section above
+		%\Large \emph{Author:}\\
+		%John \textsc{Smith}\\[3cm] % Your name
+		
+		%----------------------------------------------------------------------------------------
+		%	DATE SECTION
+		%----------------------------------------------------------------------------------------
+		
+		{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+		
+		%----------------------------------------------------------------------------------------
+		%	LOGO SECTION
+		%----------------------------------------------------------------------------------------
+		
+		\includegraphics[width = 28mm]{logo.jpg} % Include a department/university logo - this will require the graphicx package
+		
+		%----------------------------------------------------------------------------------------
+		
+		\vfill % Fill the rest of the page with whitespace
+		
+	\end{titlepage}
+	\tableofcontents
+	\newpage
+	\section{Cel projektu}
+	Praca skupiała się na badaniu najnowszych rozwiązań algorytmicznych w dziedzinie widzenia komputerowego służących do poprawy rozdzielczości, zwanych również algorytmami super-rozdzielczości (super-resolution). Wybrane metody rokujące swoją użyteczność w przypadku poprawy zdjęć twarzy zostali  zaimplementowane i przebadane.
+	
+	\section{Wstęp}
+	Czym jest super-rozdzielczość? Super-rozdzielczość (pisana również jako super resolution, superresolution) jest określeniem zestawu metod zwiększania skali wideo lub obrazów. Terminy takie jak „skalowanie w górę”, „powiększanie”, „konwersja w górę” i „uprez” również opisują wzrost rozdzielczości w przetwarzaniu obrazu lub edycji wideo. Większość technik super-rozdzielczości opiera się na tym samym pomyśle: wykorzystanie informacji z kilku różnych obrazów do stworzenia jednego powiększonego obrazu. Algorytmy próbują wyodrębnić szczegóły z każdego obrazu w sekwencji, aby zrekonstruować inne ramki. 
+
+	Głównym celem super-rozdzielczości jest wygenerowanie obrazu o wyższej rozdzielczości z obrazów o niższej rozdzielczości. Obraz w wysokiej rozdzielczości oferuje dużą gęstość pikseli, a tym samym więcej szczegółów na temat oryginalnej sceny. Potrzeba wysokiej rozdzielczości jest powszechna w wizji komputerowej	aplikacje dla lepszej wydajności w rozpoznawaniu wzorów i analizie obrazów. Wysoka rozdzielczość ma znaczenie w obrazowaniu medycznym dla diagnozy. Wiele aplikacji wymaga powiększenia określonego obszaru zainteresowania obrazu, w którym niezbędna jest wysoka rozdzielczość, np. aplikacje do nadzoru, kryminalistyki i obrazowania satelitarnego.
+	\section{Wstęp teoretyczny}
+	Super-rozdzielczość (SR) odnosi się do zadania przywracania obrazów o wysokiej rozdzielczości z jednej lub więcej obserwacji tej samej sceny w niskiej rozdzielczości (LR). Zgodnie z liczbą wejściowych obrazów LR, SR można podzielić na super-rozdzielczość pojedynczego obrazu (SISR) i super-rozdzielczość wielu obrazów (MISR). W porównaniu z MISR, SISR jest znacznie bardziej popularny ze względu na wysoką wydajność. Typowa struktura SISR, wygłąda następująco:
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{sisr.png}
+	\caption{Szkic SISR}
+	\label{fig:mesh1}
+	\end{figure}
+	\newpage
+	Głównie algorytmy SISR dzielą się na trzy kategorie: metody oparte na interpolacji, metody oparte na rekonstrukcji oraz metody oparte na uczeniu. Metody SISR oparte na interpolacji, takie jak interpolacja dwusześcienna (bicubic  interpolation) i próbkowanie Lanczosa (Lanczos resampling), są bardzo szybkie i proste, ale dość nie dokładne.
+	  
+	 Metody SR oparte na rekonstrukcji,  często przyjmują zaawansowaną wcześniejszą wiedzę w celu ograniczenia możliwej przestrzeni rozwiązań z korzyścią polegającą na generowaniu elastycznych i ostrych szczegółów. Jednak wydajność wielu metod opartych na rekonstrukcji szybko spada, gdy zwiększa się skala, oraz metody te są zwykle czasochłonne.
+	 
+	 Metody SISR oparte na uczeniu, znane również jako metody oparte na przykładach, najczęściej używane ze względu na ich szybkie obliczenia i wyjątkową wydajność. Metody te zwykle wykorzystują algorytmy uczenia maszynowego do analizy związków statystycznych między LR i odpowiadającym mu odpowiednikiem HR z istotnych przykładów szkoleniowych.
+	 
+	 Technika MISR wykorzystuję jako wejście zestaw obrazów niskiej rozdzielczości do budowy obrazu HR, ale jak już wcześniej było wspomniane, SISR jest popularniejsza ze względu na wysoką wydajność.
+	 \newpage
+	 \section{Architektury dla SISR}
+	 \subsection{SRCNN}
+	 SRCNN(Image Super-Resolution Using Deep Convolutional Networks
+	 ). Architekturę SRCNN pokazana jest na rysunku 2. Jak ustalono w wielu tradycyjnych metodach, dla uproszczenia SRCNN używa tylko komponenty luminancji do treningu. SRCNN jest trójwarstwowym CNN (Konwolucyjne sieci neuronowe), w którym znajdują się rozmiary filtrów każdej warstwy $64 \times 1 \times 9 \times 9$, $1 \times 32 \times 5 \times 5$ i $1 \times 32 \times 5 \times 5$. Dalej w omówieniu działania algorytmu będę stosować następującą notację:
+	 \begin{itemize}
+	 	\item $Y$ obraz o niskej rozdzielczości
+	 	\item $X$ prawdiwy obraz o wysokiej rozdzielczości  
+	 \end{itemize}
+	 Każda warstwa odpowiada za następujące czynności:
+	 \begin{enumerate}
+	 	\item Wyodrębnienie i reprezentacja. Popularną strategią w rekonstrukcji obrazu  jest wyodrębnienie plastrów, a następnie reprezentowanie ich przez zestaw wstępnie przeszkolonych baz, takich jak PCA. Jest to równoważne z zawijaniem obrazu przez zestaw filtrów, z których każdy jest podstawą. W naszym sformułowaniu, włączamy optymalizację tych baz do optymalizacji sieci. Formalnie, nasza pierwsza warstwa wyrażona jest jako operacja:
+	 	$$ F_1(Y)=max(0,W_1 * Y+ B_1)$$
+	 	Gdize: 
+	 	\begin{itemize}
+	 		\item$W_1$ - odpowiedni filter
+	 		\item $B_1$ - szum
+	 		\item $*$ - oznacza operację zwijania (convolution operation) 
+	 	\end{itemize}
+	 	\item Mapowanie nieliniowe. Pierwsza warstwa wyodrębnia $n1$-wymiarową cechę dla każdego plastra. W drugiej operacji mapujemy każdy z tych $n1$-wymiarowych wektorów na $n2$-wymiarowy. Jest to równoznaczne z zastosowaniem $n2$ filtrów. Działanie drugiej warstwy jest następujące:
+	 	$$F_2(Y)= max(0,W_2*F_1(Y)+B_2)$$
+	 	\begin{itemize}
+	 		\item$W_2$ - odpowiedni filter
+	 		\item $B_2$ - szum
+	 		\item $*$ - oznacza operację zwijania (convolution operation) 
+	 	\end{itemize}
+ 		Każdy z wyjściowych $n2$-wymiarowych vektorów jest koncepcyjnie odwzorowaniem plastra o wysokiej rozdzielczości, który zostanie użyty do rekonstrukcji.
+	 	\item Rekonstrukcja. Ostatecznie  plastry o wysokiej rozdzielczości są  uśredniane w celu uzyskania ostatecznego pełnego obrazu.  Uśrednianie może być traktowane jako predefiniowany filtr na zestawie map cech (gdzie każda pozycja jest "spłaszczoną" formą wektorową plastry o wysokiej rozdzielczości). Ostatnia warstwa konwolucyjną jest definiowana następująco:
+	 	$$F_3(Y)=W_3*F_2(Y)+B_3$$
+	 \end{enumerate}
+ 	\begin{figure}[h!]
+ 	\centering
+ 	\includegraphics[width=0.8\textwidth]{SRCNN.png}
+ 	\caption{Architektura SRCNN.}
+ 	\end{figure}
+ 
+ \newpage
+	 \subsubsection{Wyniki działania algorytmu}
+	  Obejrzeć implementację która została użyta do uzyskania poniższych wyników można pod adresem:  \url{https://github.com/tegg89/SRCNN-Tensorflow}. Artyków naukowy jest dostępny pod adresem \url{https://arxiv.org/abs/1501.00092}. 
+	 \begin{figure}[h!]
+	 	\centering
+	 	\begin{subfigure}[b]{0.4\linewidth}
+	 		\includegraphics[width=\linewidth]{baby_GT.png}
+	 		\caption{Oryginalny.}
+	 	\end{subfigure}
+	 	\begin{subfigure}[b]{0.4\linewidth}
+	 		\includegraphics[width=\linewidth]{SRCNN_test.png}
+	 		\caption{Wejściowe dane sieci.}
+	 	\end{subfigure}
+	 	\begin{subfigure}[b]{0.4\linewidth}
+	 		\includegraphics[width=\linewidth]{SRCNN_1000.png}
+	 		\caption{1000 epoch uczenia.}
+	 	\end{subfigure}
+	 	\begin{subfigure}[b]{0.4\linewidth}
+	 		\includegraphics[width=\linewidth]{SRCNN_15000.png}
+	 		\caption{15000 epoch uczenia.}
+	 	\end{subfigure}
+	 	\caption{Wyniki działania algorytmu SRCNN.}
+	 	\label{fig:coffee3}
+	 \end{figure}
+ \subsection{EDSR}
+ \subsubsection{Wyniki działania algorytmu}
+\end{document}
