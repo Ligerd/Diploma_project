@@ -16,6 +16,7 @@
 \usepackage{listings}
 \usepackage{spverbatim}
 \usepackage{geometry}
+\graphicspath{{EDSR/}{SRGAN/}}
 
 \usepackage{listings}
 \usepackage{color}
@@ -166,23 +167,67 @@
 	 	\centering
 	 	\begin{subfigure}[b]{0.4\linewidth}
 	 		\includegraphics[width=\linewidth]{baby_GT.png}
-	 		\caption{Oryginalny.}
+	 		\caption{Oryginalny obraz.}
 	 	\end{subfigure}
 	 	\begin{subfigure}[b]{0.4\linewidth}
 	 		\includegraphics[width=\linewidth]{SRCNN_test.png}
-	 		\caption{Wejściowe dane sieci.}
-	 	\end{subfigure}
-	 	\begin{subfigure}[b]{0.4\linewidth}
-	 		\includegraphics[width=\linewidth]{SRCNN_1000.png}
-	 		\caption{1000 epoch uczenia.}
+	 		\caption{Obraz  niskiej rozdzielczości.}
 	 	\end{subfigure}
 	 	\begin{subfigure}[b]{0.4\linewidth}
 	 		\includegraphics[width=\linewidth]{SRCNN_15000.png}
-	 		\caption{15000 epoch uczenia.}
+	 		\caption{Obraz wysokiej rozdzielczości.}
 	 	\end{subfigure}
 	 	\caption{Wyniki działania algorytmu SRCNN.}
 	 	\label{fig:coffee3}
 	 \end{figure}
+ \newpage
  \subsection{EDSR}
+ Na Rysunku numer 4 jest zaprezentowana użyta architektóra sieci w  EDSR (Enhanced Deep Residual Networks for Single Image Super-Resolution). Niebieskie bloki na obrazie reprezentują bloki w stylu  ResNet (ang. Residual Neural Network). Zostali one użyte ze wzgłędu na to że  super-rozdzielczość wymaga, aby większość informacji zawartych w obrazie LR została zachowana w obrazie HR. W związku z tym modele używające takie bloki uczą się głównie pozostałości między obrazami LR i HR.
+  
+ \begin{figure}[h!]
+ 	\centering
+ 	\includegraphics[width=0.8\textwidth]{EDSR/EDSR_2.png}
+ 	\caption{Architektura EDSR.}
+ \end{figure}
+
+\newpage
  \subsubsection{Wyniki działania algorytmu}
+ Poniższe wyniki powstają z wytrenowanej sieci w architektórze 16 bloków resztkowych i 64 filtrami w warstwie konwolucyjnej jak jest omówione w artykule związanym z tą architektórą.
+ 	 \begin{figure}[h!]
+ 	\centering
+ 	\begin{subfigure}[b]{0.4\linewidth}
+ 		\includegraphics[width=\linewidth]{baby_GT.png}
+ 		\caption{Oryginalny obraz.}
+ 	\end{subfigure}
+ 	\begin{subfigure}[b]{0.4\linewidth}
+ 		\includegraphics[width=\linewidth]{EDSR/EDSR_INPUT.png}
+ 		\caption{Obraz  niskiej rozdzielczości.}
+ 	\end{subfigure}
+ 	\begin{subfigure}[b]{0.4\linewidth}
+ 		\includegraphics[width=\linewidth]{EDSR/EDSR_OUTPUT.png}
+ 		\caption{Obraz wysokiej rozdzielczości.}
+ 	\end{subfigure}
+ 	\caption{Wyniki działania algorytmu EDSR.}
+ 	\label{fig:coffee3}
+ \end{figure}
+\newpage
+\subsection{SRGAN}
+\subsubsection{Wyniki działania algorytmu}
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.4\linewidth}
+		\includegraphics[width=\linewidth]{baby_GT.png}
+		\caption{Oryginalny obraz.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\linewidth}
+		\includegraphics[width=\linewidth]{SRGAN/test.png}
+		\caption{Obraz  niskiej rozdzielczości.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\linewidth}
+		\includegraphics[width=\linewidth]{SRGAN/output_SRGAN.png}
+		\caption{Obraz wysokiej rozdzielczości.}
+	\end{subfigure}
+	\caption{Wyniki działania algorytmu SRGAN.}
+	\label{fig:coffee3}
+\end{figure}
 \end{document}
