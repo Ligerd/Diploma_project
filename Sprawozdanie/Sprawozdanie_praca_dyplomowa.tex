@@ -125,6 +125,52 @@
 	 
 	 Technika MISR wykorzystuję jako wejście zestaw obrazów niskiej rozdzielczości do budowy obrazu HR, ale jak już wcześniej było wspomniane, SISR jest popularniejsza ze względu na wysoką wydajność.
 	 \newpage
+	 \section{Metryki porównania jakości}
+	 Do porównania wyników działania algorytóm zostaną wykorzystane następujące metryki:
+	 \begin{itemize}
+	 	\item Szczytowy stosunek sygnału do szumu (PSNR, ang. peak signal-to-noise ratio)
+	 	\item Podobieństwo strukturalne (SSIM, ang. structure similarity) 
+	 \end{itemize}
+ 	\subsection{Szczytowy stosunek sygnału do szumu}
+ 	Szczytowy stosunek sygnału do szumu, rzadziej stosunek sygnału szczytowego do szumu (PSNR, ang. peak signal-to-noise ratio) – stosunek maksymalnej mocy sygnału do mocy szumu zakłócającego ten sygnał. Ze względu na szeroki zakres wartości PSNR wyrażany jest w decybelach. 
+ 	
+ 	Najczęściej PSNR stosowany jest do oceny jakości kodeków wykorzystujących stratną kompresję obrazów. W takim przypadku sygnałem są nieskompresowane dane źródłowe, a szumem – artefakty (zniekształcenia) spowodowane zastosowaniem kompresji stratnej.
+ 	
+ 	W celu wyznaczenia PSNR należy wpierw obliczyć współczynnik MSE (ang. mean squared error) bazujący na obu porównywanych obrazach, korzystając z wzoru:
+ 	
+ 	$$ MSE= \frac{1}{M*N} \sum_{i=1}^{N} \sum_{j=1}^{M} ([f(i,j)-f'(i,j)]^2)$$
+ 	Gdzie:
+ 	\begin{itemize}
+ 		\item $N,M$ - wymiary obrazu w pikselach,
+ 		\item $f(i,j)$- wartość piksela o współrzędnych $(i,j)$ obrzu oryginalnego,
+ 		\item $f'(i,j)$- wartość piksela o wpółrzędnych $(i,j)$ obrazu skompresowanego.
+ 	\end{itemize}
+ 
+ 	$$PSNR= 10 log_{10}{\frac{[max(f(i,j))]^2}{MSE}}$$
+ 	
+ 	Gdzie: 
+ 	\begin{itemize}
+ 		\item $max(f(i,j))$ – wartość maksymalna danego sygnału; w przypadku obrazów zwykle jest to wartość stała, np. dla obrazów monochromatycznych o reprezentacji 8-bitowej wynosi $255$.
+ 	\end{itemize}
+ 
+	\section{Podobieństwo strukturalne}
+	SSIM służy do pomiaru podobieństwa pomiędzy dwoma obrazami. Indeks SSIM jest metodą pełnego porównania, innymi słowy, mierzy jakość w oparciu o oryginalny obraz (nie skompresowany lub bez zniekształceń). Wskaźnik SSIM jest rozwinięciem tradycyjnych metod, takich jak PSNR (peak signal-to-noise ratio) i standardowa metoda błędu MSE, które okazały się niezgodne z fizjologią ludzkiego postrzegania. 
+	
+	Indeks SSIM zawiera się w przedziale od $-1$ do $+1$. Wartość $+1$ jest osiągana tylko wtedy, gdy próbki są w pełni autentyczne. Indeks SSIM jest obliczany w różnych oknach obrazu. Miara pomiędzy dwoma oknami $x$ i $y$ o wspólnym rozmiarze $N \times N$ wynosi:
+	 $$SSIM(x,y)= \frac{(2\mu_x\mu_y+c_1)(2\sigma_{xy}+c_2)}{(\mu_x^2+\mu_y^2+c_1)(\sigma_x^2+\sigma_y^2+c_2)} $$ 
+ 	
+ 	Gdzie: 
+ 	\begin{itemize}
+ 		\item $\mu_x$ wartość średnia z $x$
+ 		\item $\mu_y$ wartość średnia z $y$
+ 		\item $\sigma_x^2$ wariancja $x$
+ 		\item $\sigma_y^2$ wariancja $y$
+ 		\item $\sigma_{xy}$ kowariancja $x$ i $y$
+ 		\item $c_1=(k_1L)^2, c_2=(k_2L)^2$ dwie zmienne stabilizujące podział ze słabym mianownikiem
+ 		\item $L$ zakres dynamiki wartości pikseli 
+ 		\item $k_1=0.01$ i $k_2=0.03$
+ 	\end{itemize}
+ \newpage
 	 \section{Architektury dla SISR}
 	 \subsection{SRCNN}
 	 SRCNN(Image Super-Resolution Using Deep Convolutional Networks
@@ -161,16 +207,15 @@
  	\end{figure}
  
  \newpage
-	 \subsubsection{Wyniki działania algorytmu}
-	  Obejrzeć implementację która została użyta do uzyskania poniższych wyników można pod adresem:  \url{https://github.com/tegg89/SRCNN-Tensorflow}. Artyków naukowy jest dostępny pod adresem \url{https://arxiv.org/abs/1501.00092}. 
+	 \subsubsection{Wyniki działania algorytmu} 
 	 \begin{figure}[h!]
 	 	\centering
 	 	\begin{subfigure}[b]{0.4\linewidth}
-	 		\includegraphics[width=\linewidth]{baby_GT.png}
+	 		\includegraphics[width=\linewidth]{SRCNN/Input.jpg}
 	 		\caption{Oryginalny obraz.}
 	 	\end{subfigure}
 	 	\begin{subfigure}[b]{0.4\linewidth}
-	 		\includegraphics[width=\linewidth]{SRCNN_test.png}
+	 		\includegraphics[width=\linewidth]{SRCNN/test_srcnn.png}
 	 		\caption{Obraz  niskiej rozdzielczości.}
 	 	\end{subfigure}
 	 	\begin{subfigure}[b]{0.4\linewidth}
@@ -182,17 +227,31 @@
 	 \end{figure}
  \newpage
  \subsection{EDSR}
- Na Rysunku numer 4 jest zaprezentowana użyta architektóra sieci w  EDSR (Enhanced Deep Residual Networks for Single Image Super-Resolution). Niebieskie bloki na obrazie reprezentują bloki w stylu  ResNet (ang. Residual Neural Network). Zostali one użyte ze wzgłędu na to że  super-rozdzielczość wymaga, aby większość informacji zawartych w obrazie LR została zachowana w obrazie HR. W związku z tym modele używające takie bloki uczą się głównie pozostałości między obrazami LR i HR.
-  
- \begin{figure}[h!]
- 	\centering
- 	\includegraphics[width=0.8\textwidth]{EDSR/EDSR_2.png}
- 	\caption{Architektura EDSR.}
- \end{figure}
+ Najprostszym sposobem na zwiększenie wydajności modelu jest zwiększenie liczby parametrów. W sieci konwolucyjnej wydajność modelu może być zwiększona poprzez układanie wielu warstw lub zwiększenie liczby filtrów.
+
+ Na Rysunku  4 (a) jest zaprezentowana użyta architektóra sieci w  EDSR (Enhanced Deep Residual Networks for Single Image Super-Resolution). Niebieskie bloki na obrazie reprezentują bloki w stylu  ResNet (ang. Residual Neural Network). Zostali one użyte ze wzgłędu na to że  super-rozdzielczość wymaga, aby większość informacji zawartych w obrazie LR została zachowana w obrazie HR. W związku z tym modele używające takie bloki uczą się głównie pozostałości między obrazami LR i HR.
+ 
+  Autorzy stwierdzili, że zwiększenie liczby map cech powyżej pewnego poziomu spowodowałoby, że procedura szkoleniowa byłaby niestabilna pod względem obliczeniowym. Problem został rozwiązany w następujący sposób w każdym resztkowym bloku po ostatniej warstwie konwolucyjnej umieszczane są stałe warstwy skalowania. Moduły te znacznie stabilizują procedurę treningową przy użyciu dużej liczby filtrów.
+ 
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.4\linewidth}
+	\includegraphics[width=\textwidth]{EDSR/EDSR_2.png}
+	\caption{Architektura EDSR.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\linewidth}
+		\includegraphics[width=\linewidth]{resudualbloc.png}
+		\caption{Architektura ResNet oraz proponowany wariant.}
+	\end{subfigure}
+	\caption{Architektura EDSR.}
+	\label{fig:coffee3}
+\end{figure}
+
 
 \newpage
  \subsubsection{Wyniki działania algorytmu}
- Poniższe wyniki powstają z wytrenowanej sieci w architektórze 16 bloków resztkowych i 64 filtrami w warstwie konwolucyjnej jak jest omówione w artykule związanym z tą architektórą.
+ Poniższe wyniki powstali z wytrenowanej sieci w architektórze 16 bloków resztkowych i 64 filtrami w warstwie konwolucyjnej  filtry miały wymiar $3 \times 3$ jak jest omówione w artykule związanym z tą architektórą.
  	 \begin{figure}[h!]
  	\centering
  	\begin{subfigure}[b]{0.4\linewidth}
@@ -212,7 +271,25 @@
  \end{figure}
 \newpage
 \subsection{SRGAN}
+SRGAN - Photo-Realistic Single Image Super-Resolution Using a Generative AdversarialNetwork. Wybrana architektura wykorzustuje wewnątrz generatywną sieć przeciwstawną. To tak naprawdę dwie sieci neuronowe: pierwsza (generator) próbuje stworzyć obraz nieodróżnialny od prawdziwego z bazy wzorcowych danych, podczas gdy druga (dyskryminator) stara się znaleźć różnice. Ogólna idea takej architektury jest taka, że pozwala ona na szkolenie generatora w celu oszukiwania różnicującego dyskryminatora, który jest szkolony do odróżniania superrozdzielczych obrazów od rzeczywistych. Dzięki takiemu podejściu generator może nauczyć się tworzyć rozwiązania, które są bardzo podobne do prawdziwych obrazów, a przez to trudne do sklasyfikowania przez dyskryminatora. Uczenie takiego rodzaju zachęca do poszukiwania  lepszych rozwiązań  w podprzestrzeni które istneją w przestrzeni naturalnych obrazów. SRGAN jest bardziej atrakcyjny dla człowieka bo może wykreować obraz z większą ilością szczegółów. 
+
+ Struktura sieci jest zaprezentowana na Rysunku 6.
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.9\linewidth}
+		\includegraphics[width=\linewidth]{SRGAN_Generator.png}
+		\caption{Architektura generatora.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.9\linewidth}
+		\includegraphics[width=\linewidth]{SRGAN_dyskryminator.png}
+		\caption{Architektura dyskryminatora.}
+	\end{subfigure}
+	\caption{Architektura  SRGAN.}
+	\label{fig:coffee3}
+\end{figure}
+\newpage
 \subsubsection{Wyniki działania algorytmu}
+Poniższe wyniki powstały z wytrenowanego generatora mającego 16 bloków resztkowych z 64 filtrami w warstwie konwolucyjnej  filtry miały wymiar $3 \times 3$ oraz deskryminatora który miał 8 bloków zawierających warsty konwolucyjnej każdy następny blok miał w dwa razy więcej filtrów czyli z 64 do 512.
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}[b]{0.4\linewidth}
@@ -230,4 +307,40 @@
 	\caption{Wyniki działania algorytmu SRGAN.}
 	\label{fig:coffee3}
 \end{figure}
+\newpage
+\section{Wnisoki}
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.4\linewidth}
+		\includegraphics[width=\linewidth]{SRGAN/test.png}
+		\caption{Obraz testowy.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\linewidth}
+		\includegraphics[width=\linewidth]{SRCNN_15000.png}
+		\caption{SRCNN.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\linewidth}
+		\includegraphics[width=\linewidth]{EDSR/EDSR_OUTPUT.png}
+		\caption{EDSR.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\linewidth}
+		\includegraphics[width=\linewidth]{SRGAN/output_SRGAN.png}
+		\caption{SRGAN.}
+	\end{subfigure}
+	\caption{Wyniki działania algorytmu SRGAN.}
+	\label{fig:coffee3}
+\end{figure}
+
+Najlepsze wyniki osiągnął algorytm SRGAN w porównaniu z wybranymi algorytmami. Jak już było pisane wcześniej SRGAN jest bardziej atrakcyjny dla człowieka z większą ilością szczegółów wyniki eksperymentów to potwierdziły.
+\newpage
+\begin{thebibliography}{}
+	\bibitem{litlink1}  SRCNN Image Super-Resolution Using Deep Convolutional Networks
+	\url{https://arxiv.org/abs/1501.00092}
+	
+	\bibitem{litlink1} EDSR Enhanced Deep Residual Networks for Single Image Super-Resolution \url{https://arxiv.org/abs/1707.02921}
+	
+	\bibitem{litlink1} SRGAN Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network \url{https://arxiv.org/abs/1609.04802}
+	
+\end{thebibliography}
 \end{document}

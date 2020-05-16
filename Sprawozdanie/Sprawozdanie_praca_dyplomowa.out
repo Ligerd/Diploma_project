@@ -1,10 +1,14 @@
 \BOOKMARK [1][-]{section.1}{Cel projektu}{}% 1
 \BOOKMARK [1][-]{section.2}{Wstep}{}% 2
 \BOOKMARK [1][-]{section.3}{Wstep teoretyczny}{}% 3
-\BOOKMARK [1][-]{section.4}{Architektury dla SISR}{}% 4
-\BOOKMARK [2][-]{subsection.4.1}{SRCNN}{section.4}% 5
-\BOOKMARK [3][-]{subsubsection.4.1.1}{Wyniki dzia\233ania algorytmu}{subsection.4.1}% 6
-\BOOKMARK [2][-]{subsection.4.2}{EDSR}{section.4}% 7
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Wyniki dzia\233ania algorytmu}{subsection.4.2}% 8
-\BOOKMARK [2][-]{subsection.4.3}{SRGAN}{section.4}% 9
-\BOOKMARK [3][-]{subsubsection.4.3.1}{Wyniki dzia\233ania algorytmu}{subsection.4.3}% 10
+\BOOKMARK [1][-]{section.4}{Metryki por\363wnania jakosci}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Szczytowy stosunek sygna\233u do szumu}{section.4}% 5
+\BOOKMARK [1][-]{section.5}{Podobienstwo strukturalne}{}% 6
+\BOOKMARK [1][-]{section.6}{Architektury dla SISR}{}% 7
+\BOOKMARK [2][-]{subsection.6.1}{SRCNN}{section.6}% 8
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Wyniki dzia\233ania algorytmu}{subsection.6.1}% 9
+\BOOKMARK [2][-]{subsection.6.2}{EDSR}{section.6}% 10
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Wyniki dzia\233ania algorytmu}{subsection.6.2}% 11
+\BOOKMARK [2][-]{subsection.6.3}{SRGAN}{section.6}% 12
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Wyniki dzia\233ania algorytmu}{subsection.6.3}% 13
+\BOOKMARK [1][-]{section.7}{Wnisoki}{}% 14

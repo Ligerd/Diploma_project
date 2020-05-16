@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.14)  6 MAY 2020 16:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.14)  16 MAY 2020 14:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -882,6 +882,21 @@ LaTeX Warning: Label `fig:coffee3' multiply defined.
 
 LaTeX Warning: Label `fig:coffee3' multiply defined.
 
+
+LaTeX Warning: Label `fig:coffee3' multiply defined.
+
+
+LaTeX Warning: Label `fig:coffee3' multiply defined.
+
+
+LaTeX Warning: Label `fig:coffee3' multiply defined.
+
+
+LaTeX Warning: Label `litlink1' multiply defined.
+
+
+LaTeX Warning: Label `litlink1' multiply defined.
+
 )
 \openout1 = `Sprawozdanie_praca_dyplomowa.aux'.
 
@@ -1023,7 +1038,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 72.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 72.
-<logo.jpg, id=44, 513.8397pt x 513.8397pt>
+<logo.jpg, id=60, 513.8397pt x 513.8397pt>
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
 Package pdftex.def Info: logo.jpg  used on input line 95.
@@ -1048,7 +1063,7 @@ been already used, duplicate ignored
                    \relax 
 l.103 	\newpage
                 [1]
-<sisr.png, id=72, 1371.1225pt x 494.84875pt>
+<sisr.png, id=92, 1371.1225pt x 494.84875pt>
 File: sisr.png Graphic file (type png)
 <use sisr.png>
 Package pdftex.def Info: sisr.png  used on input line 115.
@@ -1058,118 +1073,168 @@ Package pdftex.def Info: sisr.png  used on input line 115.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [2] [3 <./sisr.png>]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 133.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 131.
 
  (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 133.
- [4]
-<SRCNN.png, id=97, 1706.375pt x 708.6475pt>
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 131.
+ [4] [5] [6]
+<SRCNN.png, id=131, 1706.375pt x 708.6475pt>
 File: SRCNN.png Graphic file (type png)
 <use SRCNN.png>
-Package pdftex.def Info: SRCNN.png  used on input line 159.
+Package pdftex.def Info: SRCNN.png  used on input line 205.
 (pdftex.def)             Requested size: 334.60422pt x 138.95883pt.
- [5 <./SRCNN.png>]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 165.
 
- (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-<baby_GT.png, id=108, 513.92pt x 513.92pt>
-File: baby_GT.png Graphic file (type png)
-<use baby_GT.png>
-Package pdftex.def Info: baby_GT.png  used on input line 169.
+[7 <./SRCNN.png>]
+<SRCNN/Input.jpg, id=140, 513.92pt x 513.92pt>
+File: SRCNN/Input.jpg Graphic file (type jpg)
+<use SRCNN/Input.jpg>
+Package pdftex.def Info: SRCNN/Input.jpg  used on input line 214.
 (pdftex.def)             Requested size: 167.2989pt x 167.29648pt.
-<SRCNN_test.png, id=109, 761.84625pt x 761.84625pt>
-File: SRCNN_test.png Graphic file (type png)
-<use SRCNN_test.png>
-Package pdftex.def Info: SRCNN_test.png  used on input line 173.
-(pdftex.def)             Requested size: 167.2989pt x 167.29282pt.
-<SRCNN_15000.png, id=110, 484.81125pt x 484.81125pt>
+<SRCNN/test_srcnn.png, id=141, 100.375pt x 100.375pt>
+File: SRCNN/test_srcnn.png Graphic file (type png)
+<use SRCNN/test_srcnn.png>
+Package pdftex.def Info: SRCNN/test_srcnn.png  used on input line 218.
+(pdftex.def)             Requested size: 167.2989pt x 167.3239pt.
+<SRCNN_15000.png, id=142, 484.81125pt x 484.81125pt>
 File: SRCNN_15000.png Graphic file (type png)
 <use SRCNN_15000.png>
-Package pdftex.def Info: SRCNN_15000.png  used on input line 177.
+Package pdftex.def Info: SRCNN_15000.png  used on input line 222.
 (pdftex.def)             Requested size: 167.2989pt x 167.29704pt.
- [6 <./baby_GT.png> <./SRCNN_test.png (PNG copy)> <./SRCNN_15000.png (PNG copy)
->]
-<EDSR/EDSR_2.png, id=119, 412.54124pt x 288.07625pt>
+ [8 <./SRCNN/Input.jpg> <./SRCNN/test_srcnn.png (PNG copy)> <./SRCNN_15000.png 
+(PNG copy)>]
+<EDSR/EDSR_2.png, id=149, 412.54124pt x 288.07625pt>
 File: EDSR/EDSR_2.png Graphic file (type png)
 <use EDSR/EDSR_2.png>
-Package pdftex.def Info: EDSR/EDSR_2.png  used on input line 189.
-(pdftex.def)             Requested size: 334.60422pt x 233.65695pt.
- [7 <./EDSR/EDSR_2.png>]
+Package pdftex.def Info: EDSR/EDSR_2.png  used on input line 240.
+(pdftex.def)             Requested size: 167.2989pt x 116.82408pt.
+<resudualbloc.png, id=150, 462.72874pt x 343.2825pt>
+File: resudualbloc.png Graphic file (type png)
+<use resudualbloc.png>
+Package pdftex.def Info: resudualbloc.png  used on input line 244.
+(pdftex.def)             Requested size: 167.2989pt x 124.11064pt.
+ [9 <./EDSR/EDSR_2.png> <./resudualbloc.png>]
+<baby_GT.png, id=160, 513.92pt x 513.92pt>
 File: baby_GT.png Graphic file (type png)
 <use baby_GT.png>
-Package pdftex.def Info: baby_GT.png  used on input line 199.
+Package pdftex.def Info: baby_GT.png  used on input line 258.
 (pdftex.def)             Requested size: 167.2989pt x 167.29648pt.
-<EDSR/EDSR_INPUT.png, id=127, 100.375pt x 100.375pt>
+<EDSR/EDSR_INPUT.png, id=161, 100.375pt x 100.375pt>
 File: EDSR/EDSR_INPUT.png Graphic file (type png)
 <use EDSR/EDSR_INPUT.png>
-Package pdftex.def Info: EDSR/EDSR_INPUT.png  used on input line 203.
+Package pdftex.def Info: EDSR/EDSR_INPUT.png  used on input line 262.
 (pdftex.def)             Requested size: 167.2989pt x 167.3239pt.
-<EDSR/EDSR_OUTPUT.png, id=128, 401.5pt x 401.5pt>
+<EDSR/EDSR_OUTPUT.png, id=162, 401.5pt x 401.5pt>
 File: EDSR/EDSR_OUTPUT.png Graphic file (type png)
 <use EDSR/EDSR_OUTPUT.png>
-Package pdftex.def Info: EDSR/EDSR_OUTPUT.png  used on input line 207.
+Package pdftex.def Info: EDSR/EDSR_OUTPUT.png  used on input line 266.
 (pdftex.def)             Requested size: 167.2989pt x 167.29941pt.
 
-[8 <./EDSR/EDSR_INPUT.png (PNG copy)> <./EDSR/EDSR_OUTPUT.png (PNG copy)>]
+[10 <./baby_GT.png> <./EDSR/EDSR_INPUT.png (PNG copy)> <./EDSR/EDSR_OUTPUT.png 
+(PNG copy)>]
+<SRGAN_Generator.png, id=169, 1736.4875pt x 489.83pt>
+File: SRGAN_Generator.png Graphic file (type png)
+<use SRGAN_Generator.png>
+Package pdftex.def Info: SRGAN_Generator.png  used on input line 280.
+(pdftex.def)             Requested size: 376.42575pt x 106.17839pt.
+<SRGAN_dyskryminator.png, id=170, 1765.59625pt x 368.37625pt>
+File: SRGAN_dyskryminator.png Graphic file (type png)
+<use SRGAN_dyskryminator.png>
+Package pdftex.def Info: SRGAN_dyskryminator.png  used on input line 284.
+(pdftex.def)             Requested size: 376.42575pt x 78.53607pt.
+ [11 <./SRGAN_Generator.png> <./SRGAN_dyskryminator.png>]
 File: baby_GT.png Graphic file (type png)
 <use baby_GT.png>
-Package pdftex.def Info: baby_GT.png  used on input line 219.
+Package pdftex.def Info: baby_GT.png  used on input line 296.
 (pdftex.def)             Requested size: 167.2989pt x 167.29648pt.
-<SRGAN/test.png, id=135, 100.375pt x 100.375pt>
+<SRGAN/test.png, id=179, 100.375pt x 100.375pt>
 File: SRGAN/test.png Graphic file (type png)
 <use SRGAN/test.png>
-Package pdftex.def Info: SRGAN/test.png  used on input line 223.
+Package pdftex.def Info: SRGAN/test.png  used on input line 300.
 (pdftex.def)             Requested size: 167.2989pt x 167.3239pt.
-<SRGAN/output_SRGAN.png, id=136, 401.5pt x 401.5pt>
+<SRGAN/output_SRGAN.png, id=180, 401.5pt x 401.5pt>
 File: SRGAN/output_SRGAN.png Graphic file (type png)
 <use SRGAN/output_SRGAN.png>
-Package pdftex.def Info: SRGAN/output_SRGAN.png  used on input line 227.
+Package pdftex.def Info: SRGAN/output_SRGAN.png  used on input line 304.
 (pdftex.def)             Requested size: 167.2989pt x 167.29941pt.
+ [12 <./SRGAN/test.png (PNG copy)> <./SRGAN/output_SRGAN.png (PNG copy)>]
+File: SRGAN/test.png Graphic file (type png)
+<use SRGAN/test.png>
+Package pdftex.def Info: SRGAN/test.png  used on input line 316.
+(pdftex.def)             Requested size: 167.2989pt x 167.3239pt.
+File: SRCNN_15000.png Graphic file (type png)
+<use SRCNN_15000.png>
+Package pdftex.def Info: SRCNN_15000.png  used on input line 320.
+(pdftex.def)             Requested size: 167.2989pt x 167.29704pt.
+File: EDSR/EDSR_OUTPUT.png Graphic file (type png)
+<use EDSR/EDSR_OUTPUT.png>
+Package pdftex.def Info: EDSR/EDSR_OUTPUT.png  used on input line 324.
+(pdftex.def)             Requested size: 167.2989pt x 167.29941pt.
+File: SRGAN/output_SRGAN.png Graphic file (type png)
+<use SRGAN/output_SRGAN.png>
+Package pdftex.def Info: SRGAN/output_SRGAN.png  used on input line 328.
+(pdftex.def)             Requested size: 167.2989pt x 167.29941pt.
+ [13]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 339.
 
 
+(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) 
 AED: lastpage setting LastPage
-[9 <./SRGAN/test.png (PNG copy)> <./SRGAN/output_SRGAN.png (PNG copy)>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 233.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 233.
+[14pdfTeX warning (ext4): destination with the same identifier (name{cite.litli
+nk1}) has been already used, duplicate ignored
 
-(./Sprawozdanie_praca_dyplomowa.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 233.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 233.
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.346 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{cite.litlink1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.346 \end{document}
+                    ]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 346.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 346.
+ (./Sprawozdanie_praca_dyplomowa.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 346.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 346.
 Package rerunfilecheck Info: File `Sprawozdanie_praca_dyplomowa.out' has not ch
 anged.
-(rerunfilecheck)             Checksum: E809148B34BF8F165BDC4D0AB966CA32;621.
+(rerunfilecheck)             Checksum: A41C1D2F33C412D6BF847C5E611A162D;878.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 233.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 346.
  ) 
 Here is how much of TeX's memory you used:
- 18412 strings out of 494888
- 323808 string characters out of 6179866
- 676041 words of memory out of 5000000
- 21508 multiletter control sequences out of 15000+600000
+ 18451 strings out of 494888
+ 324464 string characters out of 6179866
+ 676076 words of memory out of 5000000
+ 21529 multiletter control sequences out of 15000+600000
  585105 words of font info for 49 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
- 42i,12n,43p,10395b,494s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,12n,43p,10395b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share
-/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm
-/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmm
-i10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fon
-ts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Sprawozdanie_praca_dyplomowa.pdf (10 pages, 2951614 bytes).
+ips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
+-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcs
+c10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pf
+b></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmtt10.pfb>
+Output written on Sprawozdanie_praca_dyplomowa.pdf (15 pages, 3745517 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 136 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 268 PDF objects out of 1000 (max. 8388607)
+ 214 compressed objects within 3 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 188 words of extra memory for PDF output out of 10000 (max. 10000000)
 
