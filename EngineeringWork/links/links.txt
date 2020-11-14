@@ -1,0 +1,9 @@
+CNN
+https://bfirst.tech/konwolucyjne-sieci-neuronowe/
+https://mc.ai/understanding-the-structure-of-a-cnn/
+https://towardsdatascience.com/applied-deep-learning-part-4-convolutional-neural-networks-584bc134c1e2
+https://www.kaggle.com/manmohan291/57-cnn-basics
+------------------------------------------------------
+Split matematyczny 
+https://pl.wikipedia.org/wiki/Splot_(analiza_matematyczna)
+------------------------------------------------------

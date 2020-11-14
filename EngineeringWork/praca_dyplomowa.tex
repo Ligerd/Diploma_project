@@ -1,0 +1,372 @@
+\documentclass[a4paper,12pt,twoside,openany]{report}
+%
+% Wzorzec pracy dyplomowej
+% J. Starzynski (jstar@iem.pw.edu.pl) na podstawie pracy dyplomowej
+% mgr. inż. Błażeja Wincenciaka
+% Wersja 0.1 - 8 października 2016
+%
+\usepackage{polski}
+\usepackage{helvet}
+\usepackage[T1]{fontenc}
+\usepackage{anyfontsize}
+\usepackage[utf8]{inputenc}
+\usepackage[pdftex]{graphicx}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[polish]{babel}
+\usepackage{subfigure}
+\usepackage{amsfonts}
+\usepackage{verbatim}
+\usepackage{indentfirst}
+\usepackage[pdftex]{hyperref}
+
+
+% rozmaite polecenia pomocnicze
+% gdzie rysunki?
+\newcommand{\ImgPath}{.}
+
+% oznaczenie rzeczy do zrobienia/poprawienia
+\newcommand{\TODO}{\textbf{TODO}}
+
+
+% wyroznienie slow kluczowych
+\newcommand{\tech}{\texttt}
+
+% na oprawe (1.0cm - 0.7cm)*2 = 0.6cm
+% na oprawe (1.1cm - 0.7cm)*2 = 0.8cm
+%  oddsidemargin lewy margines na nieparzystych stronach
+% evensidemargin lewy margines na parzystych stronach
+\def\oprawa{1.05cm}
+\addtolength{\oddsidemargin}{\oprawa}
+\addtolength{\evensidemargin}{-\oprawa}
+
+% table span multirows
+\usepackage{multirow}
+\usepackage{enumitem}	% enumitem.pdf
+\setlist{listparindent=\parindent, parsep=\parskip} % potrzebuje enumitem
+
+%%%%%%%%%%%%%%% Dodatkowe Pakiety %%%%%%%%%%%%%%%%%
+\usepackage{prmag2017}   % definiuje komendy opieku,nrindeksu, rodzaj pracy, ...
+
+
+%%%%%%%%%%%%%%% Strona Tytułowa %%%%%%%%%%%%%%%%%
+% To trzeba wypelnic swoimi danymi
+\title{Poprawa rozdzielczości zdjęć przy użyciu krzyżowo-skalowej korelacji cech.}
+
+% autor
+\author{Aliaksandr Karolik}
+\nrindeksu{295138}
+
+% jeśli wykonawca jest tylko jeden, to usuwamy poniższe polecenia
+%\authorII{Pracowity Kolega}
+%\nrindeksuII{654321}
+
+\opiekun{dr inż. Grzegorz Sarwas}
+%\konsultant{prof. Dzielny Konsultant}  % opcjonalnie
+\terminwykonania{1 lutego 2020} % data na oświadczeniu o samodzielności
+\rok{2020}
+
+
+% Podziekowanie - opcjonalne
+%\podziekowania{\input{podziekowania.tex}}
+
+% To sa domyslne wartosci
+% - mozna je zmienic, jesli praca jest pisana gdzie indziej niz w ZETiIS
+% - mozna je wyrzucic jesli praca jest pisana w ZETiIS
+\miasto{Warszawa}
+\uczelnia{POLITECHNIKA WARSZAWSKA}
+\wydzial{WYDZIAŁ ELEKTRYCZNY}
+\instytut{INSTYTUT STEROWANIA I ELEKTRONIKI PRZEMYSŁOWEJ}
+\zaklad{ZAKŁAD STEROWANIA}
+\kierunekstudiow{INFORMATYKA STOSOWANA}
+
+% domyslnie praca jest inzynierska, ale po odkomentowaniu ponizszej linii zrobi sie magisterska
+%\pracamagisterska
+%%% koniec od P.W
+
+
+
+\streszczenia{
+  \input{streszczenia.tex}
+}
+
+\begin{document}
+\maketitle
+
+%-----------------
+% Wstęp
+%-----------------
+\chapter{Wstęp}
+	W dobie dużej popularności cyfrowej rejestracji obrazów przy wykorzystaniu urządzeń mobilnych takich jak kamery, czy tablety za pomocą wbudowanych w  nich aparatów fotograficznych jakość/rozdzielczość zarejestrowanych obrazów nie zawsze jest zadowalająca. Zarejestrowane materiały są w różnoraki sposób zakłócone, zniekształcone, co nie pozwala nam na wydruk, w odpowiedniej jakości, tego typu materiału. Ponieważ optyka zainstalowana w średniej półki telefonach komórkowych nie pozwala na uzyskanie wystarczającej jakości fotografii, widać wyraźne zapotrzebowanie na algorytmy poprawiające rozdzielczość i jakość zarejestrowanych obrazów.
+	
+	Czym jest super-rozdzielczość? Super-rozdzielczość (pisana również jako super resolution, superresolution) jest określeniem zestawu metod zwiększania skali wideo lub obrazów. Terminy takie jak „skalowanie w górę”, „powiększanie”, „konwersja w górę” i „uprez” również opisują wzrost rozdzielczości w przetwarzaniu obrazu lub edycji wideo. 
+	
+	Większość technik super-rozdzielczości opiera się na tym samym pomyśle: wykorzystanie informacji z kilku różnych obrazów do stworzenia jednego powiększonego obrazu. Algorytmy próbują wyodrębnić szczegóły z każdego obrazu w sekwencji, aby zrekonstruować inne ramki. Obraz w wysokiej rozdzielczości oferuje dużą gęstość pikseli, a tym samym więcej szczegółów na temat oryginalnej sceny.
+
+	Potrzeba wysokiej rozdzielczości jest powszechna w wizji komputerowej dla lepszej wydajności w rozpoznawaniu wzorów i analizie obrazów. Wysoka rozdzielczość ma znaczenie w obrazowaniu medycznym dla diagnozy. Wiele aplikacji wymaga powiększenia określonego obszaru w którym niezbędna jest wysoka rozdzielczość, np. aplikacje do nadzoru, kryminalistyki i obrazowania satelitarnego.
+
+	Praca ta skupiać się będzie na badaniu rozwiązań algorytmicznych w dziedzinie widzenia komputerowego służących do poprawy rozdzielczości, zwanych również algorytmami super-rozdzielczości (super-resolution). 
+
+
+\chapter{Algorytmy do poprawy rozdzielczości zdjęć}
+W tym rozdziale opisane zostaną podstawowe, jak i obecnie używane architektury sieci neuronowych  do poprawy rozdzielczości zdjęć. Przedstawione zostaną teoretyczne podstawy działania oraz główne założenia budowy. Architektury sieci są tak dobrane, aby móc zaprezentować rozwój pomysłów ich twórców.
+
+%-----------------
+% Wstęp teoretyczny
+%-----------------
+
+\section{Wstęp teoretyczny}
+	Super-rozdzielczość (SR) odnosi się do zadania przywracania obrazów o wysokiej rozdzielczości z jednej lub więcej obserwacji tej samej sceny w niskiej rozdzielczości (LR). Zgodnie z liczbą wejściowych obrazów LR, SR można podzielić na super-rozdzielczość pojedynczego obrazu (SISR) i super-rozdzielczość wielu obrazów (MISR). W porównaniu z MISR, SISR jest znacznie bardziej popularną metodą ze względu na wysoką wydajność. Typowa struktura SISR, jest zaprezentowana na rysunku \ref{szkicSisr}.
+	\begin{figure}[!htbp]
+		\begin{center}
+			\centering
+			\includegraphics[scale=0.3]{\ImgPath/rys/sisr.png}
+		\end{center}
+		\caption{Szkic SISR}
+		\label{szkicSisr}
+	\end{figure}
+  	\newpage
+  	Głównie algorytmy SISR dzielą się na trzy kategorie: metody oparte na interpolacji, metody oparte na rekonstrukcji oraz metody oparte na uczeniu. Metody SISR oparte na interpolacji, takie jak interpolacja dwusześcienna (bicubic  interpolation) i próbkowanie Lanczosa (Lanczos resampling), są bardzo szybkie i proste, ale dość nie dokładne.
+  
+  	Metody SR oparte na rekonstrukcji,  często przyjmują zaawansowaną wcześniejszą wiedzę w celu ograniczenia możliwej przestrzeni rozwiązań z korzyścią polegającą na generowaniu elastycznych i ostrych szczegółów. Jednak wydajność wielu metod opartych na rekonstrukcji szybko spada, gdy zwiększa się skala, oraz metody te są zwykle czasochłonne.
+  
+  	Metody SISR oparte na uczeniu, znane również jako metody oparte na przykładach, najczęściej używane ze względu na ich szybkie obliczenia i wyjątkową wydajność. Metody te zwykle wykorzystują algorytmy uczenia maszynowego do analizy związków statystycznych między LR i odpowiadającym mu odpowiednikiem HR z istotnych przykładów szkoleniowych.
+  
+  	Technika MISR wykorzystuję jako wejście zestaw obrazów niskiej rozdzielczości do budowy obrazu HR, ale jak już wcześniej było wspomniane, SISR jest popularniejsza ze względu na wysoką wydajność.
+
+%-----------------
+% Konwolucyjna sieć neuronowa
+%-----------------  
+  
+\section{Konwolucyjna sieć neuronowa}
+Konwolucyjne sieci neuronowe (CNN) są prawie wszędzie. Jest to prawdopodobnie najbardziej popularna architektura głębokiego uczenia. Niedawny wzrost zainteresowania  głębokim uczeniem wynika z ogromnej popularności i skuteczności konwulsyjnych sieci neuronowych. Zainteresowanie CNN rozpoczęło się od AlexNet w 2012 roku i od tego czasu rosło wykładniczo. W ciągu zaledwie trzech lat, naukowcy przeszli z 8-warstwowej sieci AlexNet do 152-warstwowej sieci ResNet.
+
+CNN jest obecnie modelem go-to dla każdego problemu związanego z obrazem. CNN również stosowane w systemach rekomendacji, przetwarzania języka naturalnego i nie tylko. Główną zaletą sieci CNN w porównaniu z jej poprzednikami jest to, że automatycznie wykrywa ona ważne cechy bez żadnego nadzoru człowieka. Na przykład, biorąc pod uwagę wiele zdjęć kotów i psów, sieć sama uczy się cech charakterystycznych dla każdej klasy.
+
+Podstatowym narzędziem  sieci  jest warstwa konwolucyjna. Warsta konwolucyjna składa się z zestawu filtrów, zadaniem której jest wykrycie poszczególnych cech ze zdjęcia. 
+
+Mnożenie splotowe lub konwolucja to operacja matematyczna polegająca na połączeniu dwóch zestawów informacji. W naszym przypadku konwolucja jest stosowana na danych wejściowych oraz filtru. W wyniku powstaje nowa macierz, która jest nazywana mapą cech, wartości mapy są wynikiem kombinacji liniowej poszczególnych pikseli obrazu wejściowego i przesuwającego się filtra. Poniżej na rysunku \ref{schematKonwolucji}  zaprezentowany jest shemat mnożenia splotowego lub konwolucji:
+\begin{figure}[!htbp]
+	\begin{center}
+		\centering
+		\includegraphics[scale=0.4]{\ImgPath/rys/CNN-konwolucja-1.png}
+	\end{center}
+	\caption{Schemat mnożenia splotowego (konwolucji)}
+	\label{schematKonwolucji}
+\end{figure}
+
+Tak samo jak w zwykłej sieci, po warstwie konwolucyjnej występuje warstwa aktywacji (najczęściej używana jest funkcja ReLU),  zadaniem której jest wprowadzenie nieliniowości do sieci.
+ 
+Drugim podstawowym elementem sieci konwolucyjnej jest warstwa łączącą (pooling layer). Zadaniem jej jest zmniejszenie wymiarów  mapy cech, wyznaczonej w warstwie konwolucyjnej, przy zachowaniu jej kluczowych elementów. Warstwa  ta również odpowiada za redukcję szumu. Najczęściej używaną metodą jest „Max pooling”. 
+
+Algorytm działania metody Max pooling jest następujący definiowany jest filtr oraz krok przesunięcia. Kolejne wartości macierzy wyjściowej są maksymalną wartością objętą filtrem. Na rysunku \ref{schematMaxPooling}  zaprezentowany jest shemat działania metody Max pooling:
+
+\begin{figure}[!htbp]
+	\begin{center}
+		\centering
+		\includegraphics[scale=0.4]{\ImgPath/rys/max-pooling.png}
+	\end{center}
+	\caption{Schemat metody Max pooling}
+	\label{schematMaxPooling}
+\end{figure}
+
+%-----------------
+% Podstawowa architektura SISR
+%-----------------
+\section{Konwolucyjne sieci neuronowe dla super-rodzielczości}
+Pierwszą zapropanowaną architektórę używającą CNN do mapowania obrazów niskiej rozdzielczości do wysokiej jest SRCNN(Image Super-Resolution Using Deep Convolutional Networks). Architekturę SRCNN zaprezentowana jest na rysunku \ref{archSRCNN}. SRCNN jest trójwarstwowym CNN (Konwolucyjne sieci neuronowe), w którym znajdują się rozmiary filtrów każdej warstwy $64 \times 1 \times 9 \times 9$, $1 \times 32 \times 5 \times 5$ i $1 \times 32 \times 5 \times 5$.
+Każda warstwa odpowiada za następujące czynności:
+\begin{enumerate}
+	\item Wyodrębnienie i reprezentacja. Obraz jest przepuszczany przez zestaw filtrów. Zadaniem których jest wyodrębnienie cech specyficznych.  
+	\item Mapowanie nieliniowe. Dla każdej mapy cech wyprodókowanych w poprzedniej warstwie, przyporządkowywany jest wektor cech o wysokiej	rozdzielczości.
+	\item Rekonstrukcja. Ostatnia warstwa konwulacyjna układa wektory cech uzyskane w poprzedniej warstwie w jeden obraz wysokiej rozdzielczości.
+\end{enumerate}
+\begin{figure}[!htbp]
+	\begin{center}
+		\centering
+		\includegraphics[scale=0.2]{\ImgPath/rys/SRCNN.png}
+	\end{center}
+	\caption{Architektura SRCNN}
+	\label{archSRCNN}
+\end{figure}
+
+Autorzy proponujące architekturę SRCNN przewidywali, że zwiększenie ilości warst konwulocyjnych korzystnie wpłynie na wyniki. Niedługo po ich publikacji zaczęły pojawiać się rozwiązania o głębszych architekturach. Kim i in. zaproponowali bardzo głęboki model VDSR z ponad 16 warstwami konwolucyjnymi korzystającymi ze skutecznego uczenia rezydualnego (resztkowego,residual learning). Aby w pełni wykorzystać moc głębokich CNN, Lim i in. zintegrowali bloki rezydualne w framework SR, w wyniku powstały modeli EDSR i MDSR.
+
+  %-----------------
+  % Model CSNL
+  %-----------------
+\section{Model CSNLN}
+	
+	Modeli do  poprawy rozdzielczości pojedynczego obrazu oparte na dużej ilości warst konwolucyjcnych wykorzystują korzyści płynące z dużych zewnętrznych zasobów obrazu do lokalnej odbudowy, jednak w większości istniejących prac pominięto dalekosiężne podobieństwa cech charakterystycznych. Niektóre z ostatnich prac z powodzeniem wykorzystały te wewnętrzne korelacje cech, używając nielokalne moduły uwagi.
+	
+	Jednakże istniejące podejścia do odtwarzania obrazów używały jedynie podobieństwa cech w tej samej skali, ignorując liczne wewnętrzne wzorce LR-HR w różnych skalach, co prowadziło do stosunkowo niskiej wydajności. Wiadomo, że wewnętrzne korelacje HR zawierają bardziej istotne informacje o wysokich częstotliwościach. W tym celu,  Yiqun Mei i in. w swoim artykule proponują pierwszy moduł uwagi Cross-Scale Non-Local (CS-NL) z integracją do rekurencyjnej sieci neuronowej. 
+	
+	Proponowana architektura sieci przedstawiona jest na rysunku \ref{CSNLN}. Jest to w zasadzie rekurencyjna sieć neuronowa, w której każda komórka zwana Self-Exemplars Mining (SEM) w pełni integruje uczenie oparte o lokalne czynniki, nielokalne czynniki w tej samej skali obrazów oraz w skali zmiennej używając nowozapropanowany moduł CS-NL. 
+	
+	Powtarzające się komórki SEM są osadzone w sekwencyjną strukturę, jak pokazano na rysunku \ref{CSNLN}. Każda komurka SEM produkuje $H_i$ przekształconą mapę cech powstającą z połączenia wyników dwóch modułów uwagi oraz mapy cech otrzymanej ze zwykłej warstwy konwolucyjnej. Wudobyte mapy cech $H_i$ łączone jedą warstwą konwulacyjną w wyniku łaczenia powstaje obraz wysokej rozdzielczości.
+	
+	\begin{figure}[!htbp]
+		\begin{center}
+			\centering
+			\includegraphics[scale=0.6]{\ImgPath/rys/CSNLN.png}
+		\end{center}
+		\caption{Architektura CSNLN}
+		\label{CSNLN}
+	\end{figure}
+	\subsection{Moduły uwagi}
+	
+	Jak było już wspomniano wcześniej wybrany algorytm wyszukuje nielokalne korelacje w obrazach w tej samej skali oraz w skali zmiennej. Korelacje poszukiwane są za pomocą dwóch modułów uwagi nielokalnej o nazwach  In-Scale Non-Local Attention (IS-NL) oraz Cross-Scale Non-Local Attention (CS-NL).
+	
+	Nielokalna uwaga może eksplorować autopróbki poprzez podsumowanie cechy charakterystyczne ze zbioru obrazów wejściowych. Autorzy publikacji używająć artykułu zdefiniowali nielokalną uwagę dla wybranej $X$ mapy cech obrazu za pomocą wzora \ref{nonlocalAtten}.
+	
+	\begin{equation}
+		Z_{i,j}= \sum_{g,h}\frac{\exp (\phi(X_{i,j},X_{g,h}))}{\sum_{u,v}\exp(\phi(X_{i,j},X_{u,v}))} \psi(X_{g,h}),
+		\label{nonlocalAtten}
+	\end{equation}
+	gdzie: 
+	\begin{itemize}
+		\item $(i,j),(g,h)$ oraz $(u,v)$ pary kordynat mapy $X$
+		\item $\phi(.)$ funkcja transformacji cech
+		\item $\psi(.,.)$ funkcją korelacji do pomiaru podobieństwa. Definiowana w sposób \ref{kor}
+	\end{itemize}
+	\begin{equation}
+		\psi(X_{i,j},X_{g,h}) = \theta(X_{i,j})^T \delta(X_{g,h}),
+		\label{kor}
+	\end{equation}
+	gdzie: 
+	\begin{itemize}
+		\item $\theta(.), \delta(.)$ funkcje transformacji cech
+	\end{itemize}
+
+	Warto zauważyć że zaproponowany wzór może być wykorzystywany dla obrazów w tej samej skali. W oparciu o wzór \ref{nonlocalAtten} autorzy zaimplementowali moduł IS-NL poniżej na rysunku \ref{IS-NL} jest graficzna reprezentacja.
+	
+	\begin{figure}[!htbp]
+		\begin{center}
+			\centering
+			\includegraphics[scale=1.2]{\ImgPath/rys/Attention.png}
+		\end{center}
+		\caption{Moduł IS-NL}
+		\label{IS-NL}
+	\end{figure}
+
+	Powyższe sformułowanie \ref{nonlocalAtten} zostało rozszerzone do wersji używającej krzyżowo-skalową korelację cech. Zamiast pomiaru wzajemnej korelacji pikselowej jak jest robione IS-NL modułe, proponowany nowy moduł uwagi ma na celu pomiar korelacji pomiędzy pikselami o niskiej rozdzielczości a plastrami  większej skali obrazu LR. 
+	% DO poprawy
+	
+	Na rysunku \ref{CS-NL} zaprezentowana nowa architektura modułu uwagi wykorzystująca krzyżowo-skalową korelację cech zaprojektowana w oparciu o \ref{nonlocalAtten} przez twórców artykula. Moduł CS-NL działa w następujący sposób wejściowa mapa cech $X$ o wymiarach $W,H$ przekształcana jest przy pomocy interpolacji dwuliniowej do $Y$ w skali $s$. Następnie  plastry $p \times p$ z mapy $X$ są porównywany do $p \times p$ koordynat w mapie $Y$ aby uzyskać wynik dopasowania softmax. Na samamym końcu jest używana warstwa dekonwolucyjna na wynikach softmaxa oraz wagach plastra o wymiarze $sp,sp$ wydobywana z mapy $X$. W wyniku powstaje mapa Z o wymiarach (sW, sH) która będzie $s$ razy bardziej określona niż $X$.
+	
+	\begin{figure}[!htbp]
+		\begin{center}
+			\centering
+			\includegraphics[scale=0.5]{\ImgPath/rys/CS-NL.png}
+		\end{center}
+		\caption{Moduł CS-NL}
+		\label{CS-NL}
+	\end{figure} 
+
+
+	%Autorzy zaporoponowali następujący algorytm do pomiaru krzyżowo-skalowej korelacji cech. Aby wyszukać podobieństwo piksela do plastra skala wejściowej mapy cech $X$ o wymiarach $W \times H$ zostaje obniżona o $s$ czyli powstaje $Y$ o wymiarach $\frac{W}{s} \times \frac{H}{s}$. Wyszukiwane jest pikselowe podobieństwo $X$ z $Y$ oraz używjąc odpowiadający plaster o wymiarach $s \times s$ z mapy $X$ do stworzenia pixeli o wększej rozdzielczości. W wyniku tych operacji powstanie mapa cech o wymiarach $sW \times sH$. Poniżej jest zaprezentowany zadoptowany wzór do wyszukiwania krzyżowo skalowej korelacji cehc.
+	%\begin{equation}
+	%	Z_{si,sj}^{s\times s}= \sum_{g,h}\frac{\exp (\phi(X_{i,j},Y_{g,h}))}{\sum_{u,v}\exp(\phi(X_{i,j},Y_{u,v}))} \psi(X_{sg,sh}^{s\times s}),
+	%	\label{nonlocalAtten}
+	%\end{equation}
+	\subsection{Mutual-Projected Fusion}
+	Jak wcześniej było wspomniane każda komurka SEM zawiera trójbranżową strukturę przy pomocy której generuje trzy mapy cech poprzez niezależne wykorzystanie każdego ze źródeł informacji z obrazów LR, niejasne pozostaje, jak połączyć te oddzielne tensory w kompleksową mapę funkcji. Autorzy zaproponowali własny algorytm do stopniowego łączenia cech. Procedura algorytmu została przedstawiona na rysunku \ref{Fusion}.
+	
+	Aby pozwolić sieci skupić się na bardziej informacyjnych cechach najpierw jest obliczana różnica $R_{IC}$ pomiędzy dwoma mapami cech $F_I$ i $F_C$  z modułów  IS-NL oraz CS-NL odpowiednio. Następnie wynikowa mapa $R_{IC}$ jest przepuszczana przez jedną warstę conwolucyjną późnej z powrotem jest dodawana mapa $F_I$ jest to robione do przewrócenia straconych informacji przy operacji odejmowania.
+	\begin{equation}
+		R_{IC}  = F_I - F_C
+		\label{RIC}
+	\end{equation}
+	\begin{equation}
+		F_{IC} = conv(R_{IC}) + F_I
+ 		\label{FIC}
+	\end{equation}
+	Pozostająca cecha $R_{IC}$ reprezentuje szczegóły istniejące w jednym źródle, a brakujące w drugim. Taka projekcja pozwala sieci skupić się tylko na odrębnych informacjach pomiędzy źródłami, omijając przy tym powszechną wiedzę, co zwiększa jej zdolność dyskryminacyjną.
+	\begin{figure}[!htbp]
+		\begin{center}
+			\centering
+			\includegraphics[scale=0.5]{\ImgPath/rys/fusion.png}
+		\end{center}
+		\caption{Algorytm lączenia map cech}
+		\label{Fusion}
+	\end{figure} 
+	
+	Wzorójąc się artykułem DBPN, autorzy zadoptowali podejście back-projection w celu włączenia lokalnych informacji, aby dodać regularyzację cech i skorygować błędy rekonstrukcji. Wynikowa mapa $H$ jest obliczana w następujący sposób. 
+	\begin{equation}
+		e = F_L - downsample(F_{IC}),
+		\label{RIC}
+	\end{equation}
+	\begin{equation}
+		H = upsample(e) + F_{IC}
+		\label{FIC}
+	\end{equation}
+	gdzie $F_L$ jest mapą cech z gałędzie lokalnej (Local branch), $downsample$ jest dokanywany przy pomocy warstwy konwolucyjnej do zmienjszenia wymiaru oraz $upsample$ odpowiednio warstwa konwolucyjna do przewrócenia wymiarów do $sH \times sW$. 
+	
+	Zaproponawany algorytm gwarantuje uczenie resztkowe (residual learning) przy jednoczesnym łączeniu różnych źródeł cech, co umożliwia bardziej dyskryminacyjne uczenie cech w porównaniu z zwykłym dodawaniem lub łączeniem.
+  %-----------------
+  % Stegoanaliza
+  %-----------------
+  %\newpage
+\section{Metryki porównania jakości modeli}
+Do porównania wyników działania algorytóm zostaną wykorzystane następujące metryki:
+\begin{itemize}
+	\item Szczytowy stosunek sygnału do szumu (PSNR, ang. peak signal-to-noise ratio)
+	\item Podobieństwo strukturalne (SSIM, ang. structure similarity) 
+\end{itemize}
+\subsection{Szczytowy stosunek sygnału do szumu}
+Szczytowy stosunek sygnału do szumu, rzadziej nazywany jako stosunek sygnału szczytowego do szumu (PSNR, ang. peak signal-to-noise ratio) – stosunek maksymalnej mocy sygnału do mocy szumu zakłócającego ten sygnał. Ze względu na szeroki zakres wartości PSNR wyrażany jest w decybelach. 
+
+Najczęściej PSNR stosowany jest do oceny jakości kodeków wykorzystujących stratną kompresję obrazów. W takim przypadku sygnałem są nieskompresowane dane źródłowe, a szumem – artefakty (zniekształcenia) spowodowane zastosowaniem kompresji stratnej.
+
+W celu wyznaczenia PSNR należy najpierw obliczyć współczynnik MSE (ang. mean squared error) bazujący na obu porównywanych obrazach, wykorzystując wzór \ref{MSE}. A później używając współczynik MSE obliczyć szczytowy stosunek sygnału do szumu za pomocą wzoru \ref{PSNR}. 
+
+\begin{equation}
+	MSE= \frac{1}{M*N} \sum_{i=1}^{N} \sum_{j=1}^{M} ([f(i,j)-f'(i,j)]^2) \label{MSE}
+\end{equation}
+
+Gdzie:
+\begin{itemize}
+	\item $N,M$ - wymiary obrazu w pikselach,
+	\item $f(i,j)$- wartość piksela o współrzędnych $(i,j)$ obrzu oryginalnego,
+	\item $f'(i,j)$- wartość piksela o wpółrzędnych $(i,j)$ obrazu skompresowanego.
+\end{itemize}
+
+\begin{equation}
+	PSNR= 10 log_{10}{\frac{[max(f(i,j))]^2}{MSE}}
+	\label{PSNR}
+\end{equation}
+Gdzie: 
+\begin{itemize}
+	\item $max(f(i,j))$ – wartość maksymalna danego sygnału; w przypadku obrazów zwykle jest to wartość stała, np. dla obrazów monochromatycznych o reprezentacji 8-bitowej wynosi $255$.
+\end{itemize}
+
+\subsection{Podobieństwo strukturalne}
+Podobieństwo strukturalne miarą indeksu ( SSIM ) jest metodą przewidywania postrzeganej jakości telewizji cyfrowej i obrazów filmowych, a także innych rodzajów zdjęć i filmów cyfrowych. Indeks SSIM jest metodą pełnego porównania, innymi słowy, mierzy jakość w oparciu o oryginalny obraz (nie skompresowany lub bez zniekształceń). Wskaźnik SSIM jest rozwinięciem tradycyjnych metod, takich jak PSNR (peak signal-to-noise ratio) i standardowej metody średniego błędu kwadratowego (MSE), które okazały się niezgodne z fizjologią ludzkiego postrzegania. 
+
+Indeks SSIM zawiera się w przedziale od $-1$ do $+1$. Wartość $+1$ jest osiągana tylko wtedy, gdy próbki są w pełni autentyczne. Indeks SSIM jest obliczany w różnych oknach obrazu. Miara pomiędzy dwoma oknami $x$ i $y$ o wspólnym rozmiarze $N \times N$ obliczana jest za pomocą wzoru \ref{SSIM}. 
+
+\begin{equation}
+	SSIM(x,y)= \frac{(2\mu_x\mu_y+c_1)(2\sigma_{xy}+c_2)}{(\mu_x^2+\mu_y^2+c_1)(\sigma_x^2+\sigma_y^2+c_2)}
+	\label{SSIM}
+\end{equation}
+
+Gdzie: 
+\begin{itemize}
+	\item $\mu_x$ wartość średnia z $x$
+	\item $\mu_y$ wartość średnia z $y$
+	\item $\sigma_x^2$ wariancja $x$
+	\item $\sigma_y^2$ wariancja $y$
+	\item $\sigma_{xy}$ kowariancja $x$ i $y$
+	\item $c_1=(k_1L)^2, c_2=(k_2L)^2$ dwie zmienne stabilizujące podział ze słabym mianownikiem
+	\item $L$ zakres dynamiki wartości pikseli 
+	\item $k_1=0.01$ i $k_2=0.03$
+\end{itemize}
+
+\bibliographystyle{plain}
+\bibliography{bibliografia}
+
+
+%\zakonczenie  % wklejenie recenzji i opinii
+
+\end{document}
+%+++ END +++

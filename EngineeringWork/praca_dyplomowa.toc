@@ -1,0 +1,12 @@
+\babel@toc {polish}{}
+\contentsline {chapter}{\numberline {1}Wstęp}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Algorytmy do poprawy rozdzielczości zdjęć}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Wstęp teoretyczny}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Konwolucyjna sieć neuronowa}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Konwolucyjne sieci neuronowe dla super-rodzielczości}{6}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Model CSNLN}{7}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Moduły uwagi}{8}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Mutual-Projected Fusion}{10}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}Metryki porównania jakości modeli}{11}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Szczytowy stosunek sygnału do szumu}{12}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Podobieństwo strukturalne}{12}{subsection.2.5.2}%

@@ -1,0 +1,11 @@
+\BOOKMARK [0][-]{chapter.1}{Wstep}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Algorytmy do poprawy rozdzielczosci zdjec}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Wstep teoretyczny}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{Konwolucyjna siec neuronowa}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.3}{Konwolucyjne sieci neuronowe dla super-rodzielczosci}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.4}{Model CSNLN}{chapter.2}% 6
+\BOOKMARK [2][-]{subsection.2.4.1}{Modu\233y uwagi}{section.2.4}% 7
+\BOOKMARK [2][-]{subsection.2.4.2}{Mutual-Projected Fusion}{section.2.4}% 8
+\BOOKMARK [1][-]{section.2.5}{Metryki por\363wnania jakosci modeli}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.5.1}{Szczytowy stosunek sygna\233u do szumu}{section.2.5}% 10
+\BOOKMARK [2][-]{subsection.2.5.2}{Podobienstwo strukturalne}{section.2.5}% 11
