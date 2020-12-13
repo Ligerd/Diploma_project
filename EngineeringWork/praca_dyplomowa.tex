@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_US
 \documentclass[a4paper,12pt,twoside,openany]{report}
 %
 % Wzorzec pracy dyplomowej
@@ -89,7 +90,7 @@
 \streszczenia{
   \input{streszczenia.tex}
 }
-
+%\linespread{1.2}
 \begin{document}
 \maketitle
 
@@ -127,7 +128,7 @@ W tym rozdziale opisane zostaną podstawowe, jak i obecnie używane architektury
 	\end{figure}
   	\newpage
   	Głównie algorytmy SISR dzielą się na trzy kategorie: metody oparte na interpolacji, metody oparte na rekonstrukcji oraz metody oparte na uczeniu. Metody SISR oparte na interpolacji, takie jak interpolacja dwusześcienna (bicubic  interpolation) i próbkowanie Lanczosa (Lanczos resampling), są bardzo szybkie i proste, ale dość nie dokładne.
-  
+  	  
   	Metody SR oparte na rekonstrukcji,  często przyjmują zaawansowaną wcześniejszą wiedzę w celu ograniczenia możliwej przestrzeni rozwiązań z korzyścią polegającą na generowaniu elastycznych i ostrych szczegółów. Jednak wydajność wielu metod opartych na rekonstrukcji szybko spada, gdy zwiększa się skala, oraz metody te są zwykle czasochłonne.
   
   	Metody SISR oparte na uczeniu, znane również jako metody oparte na przykładach, najczęściej używane ze względu na ich szybkie obliczenia i wyjątkową wydajność. Metody te zwykle wykorzystują algorytmy uczenia maszynowego do analizy związków statystycznych między LR i odpowiadającym mu odpowiednikiem HR z istotnych przykładów szkoleniowych.
@@ -302,11 +303,83 @@ Autorzy proponujące architekturę SRCNN przewidywali, że zwiększenie ilości 
 	\end{equation}
 	gdzie $F_L$ jest mapą cech z gałędzie lokalnej (Local branch), $downsample$ jest dokanywany przy pomocy warstwy konwolucyjnej do zmienjszenia wymiaru oraz $upsample$ odpowiednio warstwa konwolucyjna do przewrócenia wymiarów do $sH \times sW$. 
 	
-	Zaproponawany algorytm gwarantuje uczenie resztkowe (residual learning) przy jednoczesnym łączeniu różnych źródeł cech, co umożliwia bardziej dyskryminacyjne uczenie cech w porównaniu z zwykłym dodawaniem lub łączeniem.
+	Zaproponawany algorytm gwarantuje uczenie resztkowe (residual learning) przy jednoczesnym łączeniu różnych źródeł cech, co umożliwia bardziej dyskryminacyjne uczenie w porównaniu do zwykłego dodawania lub łączenia.
+\section{Model EDSR}
   %-----------------
   % Stegoanaliza
   %-----------------
   %\newpage
+
+\chapter{Implementacje}
+W tym rozdziale zostaną przedstawione implementacje wcześniej opisanego modelu oraz benchmarku do poprawy rozdzielczości zdjęć.  Modeli były przygotowywane do rozwiązania problemu dwóchkrotnego oraz trzechkrotnego powiększania rozdzielczości zaszumionych obrazów.
+
+\section{Środowisko programistyczne}
+Rozpoczynając pracę nad modelami, używany był własny komputer Lenovo Yoga 500 z kartą graficzną Nvidia Geforce 940M oraz systemem operacyjnym Linux 20.04.1 LTS. Po przeanalizowaniu implementacji wybranych metod stało się jasne, że nie uda się przeprowadzić proces uczenia na własnej maszynie ze względu na zbyt małą ilość pamięci graficznej. Rozwiązaniem tego problemu było udostępnienie mnie karty graficznej \textbf{Nvidia Geforce RTX 2080} na serwerze politechniki warszawskiej. Lokalne środowisko zostało przeniesione  na serwer.
+
+Język programowania został wybrany \textbf{Python}. Ze wzgłędu na wcześniejszą znajomość języka, duży  zbiór narzędzi do wizualizacji i przekształcania obrazów oraz  ogrąmną popularność w zastosowaniach związanych ze sztuczną inteligencją.
+
+Jako biblioteka do uczenia maszynowego została wybrana \textbf{PyTorch}. Głównie wybór był spowodowany istniejącymi implementacjami modeli oraz chęcią poznania tej biblioteki jako narzędzia, które będzie używane w przyszłości.
+
+Do tworzenia własnych datasetów wykorzystano biblioteki \textbf{Pillow} i \textbf{OpenCV}. Są to zaawansowane biblioteki języka programowania Python, udostępniające zestawy modułów służących do obróbki grafiki.
+
+
+\section{Zbiory danych}
+%% tu musi być ref do zbioru danych w bibliografii
+Do uczenia modeli zostało wykorystano trzy zbiory danych. Pierwszym zbiorem danych był  zbiór o nazwie \textbf{DIV2K}. Jest to zbiór 1000 kolorowych obrazów RGB z Internetu, autorzy tworzące ten zbiór zwracali szczególną uwagę na jakość obrazu, różnorodność źródeł (stron i kamer). Obrazy niskiej rozdzielczości uzyskiewane przez pomniejszenie zdjęć ze zbioru za pomocą interpolacji dwusześciennej. Zbiór był używany do wyzwań NTIRE (2017, 2018) oraz PIRM 2018. Zbiór DIV2K składa się: 
+\begin{itemize}
+	\item zbioru uczącego. Zbiór zawiera 800 par obrazów  o  wysokiej  i nizkiej  rozdzielczości.
+	\item zbioru validacyjnego.  Zbiór zawiera 100 par obrazów  o  wysokiej  i nizkiej  rozdzielczości.
+	\item zbioru testowego. Zbiór zawiera 100 par obrazów  o  wysokiej  i nizkiej  rozdzielczości.
+\end{itemize}
+
+Biorąc pod uwagę jakość obrazów zbioru DIV2K ze stanem faktycznym zdjęć robionych przy pomocy telefonu komórkowego postanowiono stworzyć własne zbiory danych. Do tego zostało wybrano 160 obrazów zrobionych za pomocą własnego telefonu komurkowego Huawei P20. Zbiór zawierał zdjęcia natury, ludzi, krajobrazów oraz zwierząt.
+
+Drugi zbiór danych wykorzystywany do trenowania i walidacji modeli został utworzony wykorzystując wcześniej opisane zdjęcia. Tworzony on był z myśłą o sprawdzenie jak modeli będą radzić z zadaniem odszumiania zdjęć. Aby to sprawdzić każde zdjęcie zostało zinterpolowano za pomocą interpolacji dwuliniowej oraz po zmniejszeniu każdy obraz był powielony czterokrotnie z dodaniem różnych szumów. W tym przypadku zostały wykorzystane następujące szumy:
+\begin{itemize}
+	\item szum Gausowski,
+	\item szum Gausowski z lokalne odchylenia w każdym punkcie obrazu,
+	\item szum typu sół,
+	\item szum typu piepsz.
+\end{itemize} 
+
+Ostatni zbiór danych wejściowych był zrobiony jako kombinacja zdjęć zaszumionych i  zinterpolowanych. Taki zbiór zapewniał dużą zdolność generalizacji bo w przypadku modeli uczonych tylko na zdjęciach zaszumionych nie były one w stanie zapewnić dobrą jakość obrazu w przypadku gdy na wejście trafiały obrazy nie zaszumione. 
+
+Podstawowy zbiór zawierający 150 obrazów był powielany pięciokrotnie. Każde zdjęcie również było interpolowano za pomocą interpolacji dwuliniowej ale tylko dwa zdjęcia z pięciu były  poddawane zaszumieniu. Pozostałe trzy zdjęcia były nie zmieniane. Używane były następujące szumy:
+\begin{itemize}
+ 	\item szum Gausowski,
+ 	\item połączenie szumów sół i piepsz.
+\end{itemize} 
+
+\section{Model CSNLN}
+Pracując nad przygotowaniem modeli CSNLN do poprawy rozdielczości zjęć, wykorzystano artykuł z 2020 roku oraz oficjalną implementację autorów artykułu która jest ogólnie dostępna na GitHub. Zastosowano architekturę przedstawioną w tej pulikacji, opis jest zawarty w Sekcji numer sekcji z artykułu. Model składał się z 12 komórem SEM. W każdej  z warst modelu używano funkcji aktywacji ReLU. Wykres tej funkcji jest zaprezentowany na rysunku \ref{relu}.
+\begin{figure}[!htbp]
+	\begin{center}
+		\centering
+		\includegraphics[scale=0.3]{\ImgPath/rys/relu.png}
+	\end{center}
+	\caption{Wykres funkcji ReLU}
+	\label{relu}
+\end{figure}    
+
+Model był trenowany przy pomocy normy $L1$ jednak była podjęta próba udoskonalezienia modelu przez zmianę funkcji strat na $L2$. Do  optymalizacji wag  modeli użyto algorytmu Adam o  współczynnikach $\beta_1=0.9$, $\beta_2=0.999$ oraz $\epsilon=1e-8$. 
+
+Zgonie z publikacją rozmiar  wejściowy obrazów (ang. patch) wynosił $48 \times 48$ jednak został on zmniejszony do $34 \times 34$ dla dwókrotnego oraz $21 \times 21$ trzechkrotnego powiększenia wybór takich rozmiarów był uwarunkowany dostępnej ilością pamięci graficznej. Ewaluacja modeli następowała po przerobieniu 16 zdjęć (ang. batch). Początkowy krok uczenia wynosił $1e-4$. 
+
+Rysunek \ref{CSNLN_uczenie} przedstawia wykresy uczenia oraz ewaluacji modeli. 
+\begin{figure}[!htbp]
+	
+	\begin{center}
+		\centering
+		\subfigure[Wykres funkcji strat trenowanie ]{\includegraphics[scale=0.4]{\ImgPath/rys/CSNLNtrain_loss_L1.pdf}}
+		\subfigure[Wykres funkcji strat validacji]{\includegraphics[scale=0.4]{\ImgPath/rys/CSNLNtest_loss_L1.pdf}}
+	\end{center}
+	\caption{Wykresy funkcji strat w procesie uczenia modelu CSNLN}
+	\label{CSNLN_uczenie}
+\end{figure}
+
+
+\section{Benchmark}
+
 \section{Metryki porównania jakości modeli}
 Do porównania wyników działania algorytóm zostaną wykorzystane następujące metryki:
 \begin{itemize}
@@ -361,11 +434,8 @@ Gdzie:
 	\item $L$ zakres dynamiki wartości pikseli 
 	\item $k_1=0.01$ i $k_2=0.03$
 \end{itemize}
-
 \bibliographystyle{plain}
 \bibliography{bibliografia}
-
-
 %\zakonczenie  % wklejenie recenzji i opinii
 
 \end{document}
