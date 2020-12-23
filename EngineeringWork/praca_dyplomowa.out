@@ -11,7 +11,12 @@
 \BOOKMARK [1][-]{section.3.1}{Srodowisko programistyczne}{chapter.3}% 11
 \BOOKMARK [1][-]{section.3.2}{Zbiory danych}{chapter.3}% 12
 \BOOKMARK [1][-]{section.3.3}{Model CSNLN}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.4}{Benchmark}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.4}{Model EDSR}{chapter.3}% 14
 \BOOKMARK [1][-]{section.3.5}{Metryki por\363wnania jakosci modeli}{chapter.3}% 15
 \BOOKMARK [2][-]{subsection.3.5.1}{Szczytowy stosunek sygna\233u do szumu}{section.3.5}% 16
 \BOOKMARK [2][-]{subsection.3.5.2}{Podobienstwo strukturalne}{section.3.5}% 17
+\BOOKMARK [0][-]{chapter.4}{Testowanie wybranych modeli}{}% 18
+\BOOKMARK [1][-]{section.4.1}{Testowanie na zbiorze danych DIV2K}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.2}{Rozmiary modeli}{chapter.4}% 20
+\BOOKMARK [0][-]{chapter.5}{Usuwanie szumu z obraz\363w}{}% 21
+\BOOKMARK [1][-]{section.5.1}{Zastosowanie sieci neuronowch do odszumiania obraz\363w}{chapter.5}% 22

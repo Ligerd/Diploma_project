@@ -20,8 +20,10 @@
 \usepackage{verbatim}
 \usepackage{indentfirst}
 \usepackage[pdftex]{hyperref}
-
-
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 % rozmaite polecenia pomocnicze
 % gdzie rysunki?
 \newcommand{\ImgPath}{.}
@@ -304,7 +306,32 @@ Autorzy proponujące architekturę SRCNN przewidywali, że zwiększenie ilości 
 	gdzie $F_L$ jest mapą cech z gałędzie lokalnej (Local branch), $downsample$ jest dokanywany przy pomocy warstwy konwolucyjnej do zmienjszenia wymiaru oraz $upsample$ odpowiednio warstwa konwolucyjna do przewrócenia wymiarów do $sH \times sW$. 
 	
 	Zaproponawany algorytm gwarantuje uczenie resztkowe (residual learning) przy jednoczesnym łączeniu różnych źródeł cech, co umożliwia bardziej dyskryminacyjne uczenie w porównaniu do zwykłego dodawania lub łączenia.
+\newpage
 \section{Model EDSR}
+Aby zweryfikować skutecznośc modelu CSNLN postanowiono porównać otrzymane wyniki do metody state-of-the-art o nazwie EDSR (ang. Enhanced Deep Residual Networks for Single Image Super-Resolution). Wybór takiego modelu był podyktowany częstym odwoływaniem się do wspomnianego modelu w wielu artykułach naukowych napotkanych w trakcie przeglądania literatury związanej z dziedziną problemu.
+
+Architektura modelu EDSR jest zaprezentowany na  rysunku \ref{EDSR}. Struktura modelu jest podobna do sieci SRResNet [14], ale zaproponowany model nie posiada warstw aktywacji poza blokami rezydualnymi. Dodatkowo w modelu EDSR zostały  zmodyfikowane bloki rezydualne. 
+
+	\begin{figure}[!htbp]
+	\begin{center}
+		\centering
+		\includegraphics[scale=0.5]{\ImgPath/rys/EDSR_Architecture.png}
+	\end{center}
+	\caption{Architektura modelu EDSR}
+	\label{EDSR}
+\end{figure} 
+\newpage
+Rysunk \ref{EDSR_resBlok} zawiera nowo proponowany blok rezydulny wraz z porównaniem go z blokiem z sieci ResNet oraz SRResNet. Nowo propanowany blok składa się tylko z dwóch warst konwolucyjnych oraz warstwy aktywacji. Jak widać z rysunku \ref{EDSR_resBlok} warstwy normalizacji wsadowej (ang. Batch Normalization) zostali usunięty. Taka decyzja była podjęta ponieważ warstwy normalizacji wsadowej, pozbywają się elastyczności sieci poprzez normalizację cech obrazu wejściowego.
+
+Taka konfiguracja modelu bez warstwy normalizacji pozwoliła zaoszczędzić około 40\% zużycia pamięci podczas szkolenia, w porównaniu z SRResNet.
+\begin{figure}[!htbp]
+	\begin{center}
+		\centering
+		\includegraphics[scale=0.6]{\ImgPath/rys/EDSRresudualbloc.png}
+	\end{center}
+	\caption{Architektura modelu EDSR}
+	\label{EDSR_resBlok}
+\end{figure}
   %-----------------
   % Stegoanaliza
   %-----------------
@@ -324,8 +351,16 @@ Do tworzenia własnych datasetów wykorzystano biblioteki \textbf{Pillow} i \tex
 
 
 \section{Zbiory danych}
+\label{Zbior danych}
 %% tu musi być ref do zbioru danych w bibliografii
-Do uczenia modeli zostało wykorystano trzy zbiory danych. Pierwszym zbiorem danych był  zbiór o nazwie \textbf{DIV2K}. Jest to zbiór 1000 kolorowych obrazów RGB z Internetu, autorzy tworzące ten zbiór zwracali szczególną uwagę na jakość obrazu, różnorodność źródeł (stron i kamer). Obrazy niskiej rozdzielczości uzyskiewane przez pomniejszenie zdjęć ze zbioru za pomocą interpolacji dwusześciennej. Zbiór był używany do wyzwań NTIRE (2017, 2018) oraz PIRM 2018. Zbiór DIV2K składa się: 
+Do uczenia modeli zostało wykorystano trzy zbiory danych:
+\begin{enumerate}
+	\item zbiór  danych DIV2K,
+	\item własny zbiór danych zawierający tylko  zaszumione obrazy,
+	\item własny zbiór danych zawierający obrazy zaszumione jak i nie zaszumione.
+\end{enumerate}
+
+Pierwszym zbiorem danych był  zbiór o nazwie \textbf{DIV2K}. Jest to zbiór 1000 kolorowych obrazów RGB z Internetu, autorzy tworzące ten zbiór zwracali szczególną uwagę na jakość obrazu, różnorodność źródeł (stron i kamer). Obrazy niskiej rozdzielczości uzyskiewane przez pomniejszenie zdjęć ze zbioru za pomocą interpolacji dwusześciennej. Zbiór był używany do wyzwań NTIRE (2017, 2018) oraz PIRM 2018. Zbiór DIV2K składa się: 
 \begin{itemize}
 	\item zbioru uczącego. Zbiór zawiera 800 par obrazów  o  wysokiej  i nizkiej  rozdzielczości.
 	\item zbioru validacyjnego.  Zbiór zawiera 100 par obrazów  o  wysokiej  i nizkiej  rozdzielczości.
@@ -351,6 +386,7 @@ Podstawowy zbiór zawierający 150 obrazów był powielany pięciokrotnie. Każd
 \end{itemize} 
 
 \section{Model CSNLN}
+\label{Model CSNLN}
 Pracując nad przygotowaniem modeli CSNLN do poprawy rozdielczości zjęć, wykorzystano artykuł z 2020 roku oraz oficjalną implementację autorów artykułu która jest ogólnie dostępna na GitHub. Zastosowano architekturę przedstawioną w tej pulikacji, opis jest zawarty w Sekcji numer sekcji z artykułu. Model składał się z 12 komórem SEM. W każdej  z warst modelu używano funkcji aktywacji ReLU. Wykres tej funkcji jest zaprezentowany na rysunku \ref{relu}.
 \begin{figure}[!htbp]
 	\begin{center}
@@ -363,25 +399,40 @@ Pracując nad przygotowaniem modeli CSNLN do poprawy rozdielczości zjęć, wyko
 
 Model był trenowany przy pomocy normy $L1$ jednak była podjęta próba udoskonalezienia modelu przez zmianę funkcji strat na $L2$. Do  optymalizacji wag  modeli użyto algorytmu Adam o  współczynnikach $\beta_1=0.9$, $\beta_2=0.999$ oraz $\epsilon=1e-8$. 
 
-Zgonie z publikacją rozmiar  wejściowy obrazów (ang. patch) wynosił $48 \times 48$ jednak został on zmniejszony do $34 \times 34$ dla dwókrotnego oraz $21 \times 21$ trzechkrotnego powiększenia wybór takich rozmiarów był uwarunkowany dostępnej ilością pamięci graficznej. Ewaluacja modeli następowała po przerobieniu 16 zdjęć (ang. batch). Początkowy krok uczenia wynosił $1e-4$. 
+Zgonie z publikacją rozmiar  wejściowy obrazów (ang. patch) wynosił $48 \times 48$ jednak został on zmniejszony do $34 \times 34$ dla dwókrotnego oraz $36 \times 36$ trzechkrotnego powiększenia wybór takich rozmiarów był uwarunkowany dostępnej ilością pamięci graficznej. Ewaluacja modeli następowała po przerobieniu 16 zdjęć (ang. batch). Początkowy krok uczenia wynosił $1e-4$. 
 
 Rysunek \ref{CSNLN_uczenie} przedstawia wykresy uczenia oraz ewaluacji modeli. 
 \begin{figure}[!htbp]
 	
 	\begin{center}
 		\centering
-		\subfigure[Wykres funkcji strat trenowanie ]{\includegraphics[scale=0.4]{\ImgPath/rys/CSNLNtrain_loss_L1.pdf}}
-		\subfigure[Wykres funkcji strat validacji]{\includegraphics[scale=0.4]{\ImgPath/rys/CSNLNtest_loss_L1.pdf}}
+		\subfigure[Trenowanie ]{\includegraphics[scale=0.4]{\ImgPath/rys/CSNLNtrain_loss_L1.pdf}}
+		\subfigure[Walidacja]{\includegraphics[scale=0.4]{\ImgPath/rys/CSNLNtest_loss_L1.pdf}}
 	\end{center}
 	\caption{Wykresy funkcji strat w procesie uczenia modelu CSNLN}
 	\label{CSNLN_uczenie}
 \end{figure}
 
 
-\section{Benchmark}
+\section{Model EDSR}
+\label{Model_EDSR}
+Badania zostały wykonane w oparciu o oficjalną implementację która jest ogólnie dostępna na GitHub. Kod został zaktualizowany do najnowszych  dostępnych bibliotek w oparciu o artykuł. Konfiguracja obrazów wejsciowych była zostawiona taka sama jak w przypadku modelu CSNLN opisanego w sekcji \ref{Model CSNLN}. 
+
+Zgodnie z artykułem zostało wykorzystano 32 bloki rezydualne  oraz liczba kanałów była ustawiona na 256. Podczas treningu sieci, do optymalizacji jej parametrów wykorzystano algorytm Adam o współczynniku zdefiniowanych  w artykule czyli $\beta_1=0.9$, $\beta_2=0.999$ oraz $\epsilon=1e-8$. Jako funkcję straty przyjęto normę $L_1$. Początkowy krok uczenia był ustawiony $1e-4$.  Ewaluacja modelu odbywała się po przejści 16 obrazów.
+
+Przebieg uczenia oraz ewaluacji modeli zaprezentowano na Rysunku \ref{EDSR_uczenie}.
+\begin{figure}[!htbp]	
+	\begin{center}
+		\centering
+		\subfigure[Trenowanie ]{\includegraphics[scale=0.4]{\ImgPath/rys/EDSRtrain_loss_L1.pdf}}
+		\subfigure[Walidacja]{\includegraphics[scale=0.4]{\ImgPath/rys/EDSRtest_loss_L1.pdf}}
+	\end{center}
+	\caption{Wykresy funkcji strat w procesie uczenia modelu EDSR}
+	\label{EDSR_uczenie}
+\end{figure}
 
 \section{Metryki porównania jakości modeli}
-Do porównania wyników działania algorytóm zostaną wykorzystane następujące metryki:
+Do porównania wyników działania algorytóm zostały wykorzystane następujące metryki:
 \begin{itemize}
 	\item Szczytowy stosunek sygnału do szumu (PSNR, ang. peak signal-to-noise ratio)
 	\item Podobieństwo strukturalne (SSIM, ang. structure similarity) 
@@ -414,7 +465,7 @@ Gdzie:
 \end{itemize}
 
 \subsection{Podobieństwo strukturalne}
-Podobieństwo strukturalne miarą indeksu ( SSIM ) jest metodą przewidywania postrzeganej jakości telewizji cyfrowej i obrazów filmowych, a także innych rodzajów zdjęć i filmów cyfrowych. Indeks SSIM jest metodą pełnego porównania, innymi słowy, mierzy jakość w oparciu o oryginalny obraz (nie skompresowany lub bez zniekształceń). Wskaźnik SSIM jest rozwinięciem tradycyjnych metod, takich jak PSNR (peak signal-to-noise ratio) i standardowej metody średniego błędu kwadratowego (MSE), które okazały się niezgodne z fizjologią ludzkiego postrzegania. 
+Podobieństwo strukturalne ( SSIM ) jest metodą przewidywania postrzeganej jakości telewizji cyfrowej i obrazów filmowych, a także innych rodzajów zdjęć i filmów cyfrowych. Indeks SSIM jest metodą pełnego porównania, innymi słowy, mierzy jakość w oparciu o oryginalny obraz (nie skompresowany lub bez zniekształceń). Wskaźnik SSIM jest rozwinięciem tradycyjnych metod, takich jak PSNR (peak signal-to-noise ratio) i standardowej metody średniego błędu kwadratowego (MSE), które okazały się niezgodne z fizjologią ludzkiego postrzegania. 
 
 Indeks SSIM zawiera się w przedziale od $-1$ do $+1$. Wartość $+1$ jest osiągana tylko wtedy, gdy próbki są w pełni autentyczne. Indeks SSIM jest obliczany w różnych oknach obrazu. Miara pomiędzy dwoma oknami $x$ i $y$ o wspólnym rozmiarze $N \times N$ obliczana jest za pomocą wzoru \ref{SSIM}. 
 
@@ -434,6 +485,126 @@ Gdzie:
 	\item $L$ zakres dynamiki wartości pikseli 
 	\item $k_1=0.01$ i $k_2=0.03$
 \end{itemize}
+\chapter{Testowanie wybranych  modeli}
+W tym rozdziale zostały zaprezentowane oraz opisane wyniki przeprowadzonych badań  wytrenowanych modelach na pierwszym zbiorze danych opisanym w sekcji \ref{Zbior danych}. Zamieszczone zostały metryki porównawcze działania algorytmów dla zdjęć pomniejszonych. Również znajdzie się w tym rodziale porównanie rozmiarów wytrenowanych modeli dla dwókrotnego oraz trzechkrotnego powiększenia  obrazu.
+
+\section{Testowanie na zbiorze danych DIV2K}  
+W pierwszej części testów postanowiono sprawdzenie wyników modelu przedstawione w publikacji. Jednak process uczenia nie był dokładnie powtórzony jak opisuje artykół. Proces trenowania był przerywany po  przejściu 100 epoch oraz jak już było wspomniane wejściowe obrazy miały  mniejsze wymiary.
+
+W tablice \ref{TabelaDIV2k} są zaprezentowane uzyskane wyniki na zbiorze testowym Set5. Również tabela  \ref{TabelaDIV2k} zawiera wyniki powiększenia obrazów przy pomocy interpolacji. Decyzja zamieszczenia tych wyników była kierowana chęcią pokazania efektów działania najprostszych metod  powiększenia  obrazów w porównaniu do głębokich  sieci neuronowych. 
+
+\begin{table}[!htbp] 
+	\centering
+\begin{tabular}{ |p{5cm}||p{2cm}|p{2cm}|p{2cm}|  }
+	\hline
+	Algorytm & Skala & PSNR &SSIM \\
+	\hline
+	Interpolacja dwuliniowa                   & x2   &30.422&  0.901\\
+	Interpolacja dwusześcienna                & x2   &32.399&   0.928\\
+	EDSR                                      &   x2   & 35.841&   0.943\\
+	CSNLN  ($L_1$)  						  &   x2  & 36.026& 0.955\\
+	CSNLN ($L_2$)  							  &   x2  & 35.721& 0.933\\
+	\hline
+	Interpolacja dwuliniowa                   &   x3  &26.396&   0.808\\
+	Interpolacja dwusześcienna                &   x3  & 26.913   &0.825\\
+	EDSR                                      &   x3 & 32.532 &  0.903\\
+	CSNLN ($L_1$) 						      &   x3  & 33.169 & 0.932\\
+	CSNLN ($L_2$)  							  &   x3  & 32.321 & 0.912\\
+	\hline
+	
+\end{tabular}
+\caption{Wyniki metod uzyskane na zbiorze testowym}
+\label{TabelaDIV2k}
+\end{table}
+
+Wśród interpolacji wyniki są  tym lepsze, im złożonej jest metoda  interpolacji. Jak i było przewidywano wyniki uzyskane przy pomocy sieci neuronowych są lepsze w stosunku  do interpolacji. Jednak różnią się oni od wyników  pokazanych w publikacji chociaż i nie wiele. Najprawdopodobniej jest to spowodowane zmniejszeniem wymiarów wejściowych obrazu oraz krótszym czasem trenowania. 
+
+Drugim czynnikiem wpłynącym na uzyskane wartości metryk mogła być zmiana przestrzeni barw na podstawie której były pozyskiwane wartości PSNR i  SSIM. W publikacji PSNR i SSIM obliczane dla składowej Y w przestrzeni barw YCbCr natomiast wartości pokazane w tabeli \ref{TabelaDIV2k} były obliczane w  przestrzeni RGB.
+
+Na rysunku \ref{fig:DIv2k}  zaprezentowane zostały wyniki powiększenia zdjęcia ze zbioru testowego Set5. Wyniki ilustrują działanie dwóch wariantów interpolacji oraz dwóch głębokich sieci neuronowych. 
+
+\begin{figure}[!htbp]
+	\centering
+	\subfigure[Set5 (x2):  baby.png]{\includegraphics[width=0.45\textwidth]{\ImgPath/rys/testy/DIV2k/babyShowReactangle.png}}
+	\subfigure[HR]{\includegraphics[width=0.25\textwidth]{\ImgPath/rys/testy/DIV2k/babyCrop.png}} 
+	\subfigure[Interpolacja dwuliniowa]{\includegraphics[width=0.25\textwidth]{\ImgPath/rys/testy/DIV2k/Bilenierbaby_x2_SRCrop.png}} 
+	\subfigure[Interpolacja dwusześcienna]{\includegraphics[width=0.27\textwidth]{\ImgPath/rys/testy/DIV2k/baby_x2_SRCropBicubic.png}}
+	\subfigure[EDSR]{\includegraphics[width=0.27\textwidth]{\ImgPath/rys/testy/DIV2k/EDSRbabyCrop_x2.png}}
+	\subfigure[CSNLN]{\includegraphics[width=0.27\textwidth]{\ImgPath/rys/testy/DIV2k/CSNLNbabyCrop_x2.png}}
+	\caption{Porównanie wizualne dla skali  x2 na zbiorze danych Set5}
+	\label{fig:DIv2k}
+\end{figure}
+
+Zdecydowanie najgorszy wynik był uzyskany przy użyciu interpolacji dwuliniowej zdjęcie jest bardzo rozmyte. Nieco lepej wygłąda zdjęcie uzyskane przy pomocy interpolacji dwusześciennej kalory wygłądają bardzo naturalnie. Punkty w których występują skupienia takich samych pikseli są mniej rozmyte. Jednak wynik uzyskany przy pomocy interpolaci jest nie do zaakceptowania ponieważ nadal rozmycie jest zauważalne.
+
+Znacznie lepiej prezentują  się wyniki uzyskane przy pomocy głębokich sieci neuronowych. Pod wzgłędem ostrzosći obie sieci  radzą skuteczniej w porównaniu do wyników uzyskanych za  pomocą interpolacji. Trudno jednak stwiredzić która sieć działa lepej wizualnie  bo różnice widoczny tylko przy dogłębnym przejrzaniu. 
+
+Tablica \ref{fig:DIv2k} zawiera wyniki próby udoskonalezienia modelu przez zmianę funkcji strat na $L2$. Eksperymenty wskazują, że trenowanie z użyciem normy L1 osiąga lepsze wyniki.
+\newpage
+\section{Rozmiary modeli}
+W tabeli \ref{TabelaSizeOfModels} zaroportowane rozmiary modeli oraz ich skuteczność. Łatwo zauważyć że model CSNLN jest lżejszy niż EDSR. Potrzebuje tylko 7\% rozmiaru modeli EDSR dla  dwóchkrotnego  oraz 13\% dla trzechkrotnego powiększenia. Jednak do otrzymania lepszych wyników model CSNLN ma w dwa razy dłuższy czas treningu niż EDSR. 
+\begin{table}[!htbp] 
+	\centering
+	\begin{tabular}{ |p{5cm}||p{1cm}|p{2cm}|p{2cm}|  }
+		\hline
+		& Skala & EDSR &  CSNLN \\
+		\hline		
+		Rozmiar modelu                            &   x2  &  43.68M    &  3.06M \\
+		Czas trenowania							  &   x2  &  20 godzin &  46 godzin\\
+		PSNR								      &   x2  &  35.841    &  36.026\\
+		\hline
+		Rozmiar modelu                            &   x3  &  43.68M    &   6.01M\\
+		Czas trenowania							  &   x3  &  20 godzin &  46 godzin\\
+		PSNR								      &   x3  &  32.532    &  33.169\\
+		\hline
+		
+	\end{tabular}
+	\caption{Rozmiar modelu i porównanie wydajności dla zbioru Set5}
+	\label{TabelaSizeOfModels}
+\end{table}
+
+\newpage
+\chapter{Usuwanie szumu z obrazów}
+W tym rozdziale zostały zaprezentowane oraz opisane wyniki przeprowadzonych badań zdolności modeli opisanych w sekcjach \ref{Model CSNLN}, \ref{Model_EDSR} usuwać szum z obrazów przy jednoczesnym ich powiększeniu.
+%Zamieszczone zostały metryki porównawcze działania algorytmów  oraz odszumione zdjęcia. 
+\section{Zastosowanie sieci neuronowch do odszumiania obrazów}
+  
+Eksperyment polegał na sprawdzeniu który z  modeli lepej rozwiązuję problem odszumiania zdjęć przy jenoczesnym ich  powiększeniu. Wytrenowano sieci EDSR oraz CSNLN przy użyciu drugiego zbioru danych opisanego w sekcji \ref{Zbior danych}. Każdy z modeli został następnie przetestowany w działaniu na zdjęciach. Wyniki tych testów demonstruje tablica \ref{TabelaShum}.
+
+\begin{table}[!htbp] 
+	\centering
+	\begin{tabular}{ |p{3cm}||p{2cm}|p{2cm}|p{2cm}|  }
+		\hline
+		Algorytm 							      & Skala   & PSNR      & SSIM \\
+		\hline
+		EDSR                                      &   x2	& 31.808	& 0.845\\
+		CSNLN  ($L_1$)  						  &   x2	& 31.112	& 0.832\\
+		CSNLN ($L_2$)  							  &   x2	& 31.323	& 0.838\\
+		\hline
+		EDSR                                      &   x3	& 32.532	& 0.903\\
+		CSNLN ($L_1$) 						      &   x3	& 33.169	& 0.932\\
+		CSNLN ($L_2$)  							  &   x3	& 32.321	& 0.912\\
+		\hline
+		
+	\end{tabular}
+	\caption{Wyniki uzyskane na zbiorze testowym}
+	\label{TabelaShum}
+\end{table}
+
+Dla dwóchkrotnego powiększenia najlepsze wyniki zostały uzyskane przy pomocy  modeli EDSR. Uzyskanie takich wyników może  być związane z tym, że architektura   EDSR  ma  głobalne połączenie omijąjące bloki rezydualne w wyniku sieć uczy  się głównie  różnicy pomiędzy zdjęciami HR i LR. Różnica pomiędzy wynikami modeli EDSR i CSNLN jest niewielka. Zmiana funkcji straty  korzystnie wpłyneła  na rezultate modelu CSNLN. 
+
+Na  rysunku \ref{fig:cropShum} zostały umieszczone fragment z obrazu węjściowego do sieciej. Z rysunku widać że obie sieci dobrze poradzili z problemen usuwania szumu jednak wyjściowym zdjęciom widocznie brakowało  ostrości. Po  przeanalizowaniu wyników stwierdzono, że problem mógł być związany z używanym zbiórem danych, modeli dostawały tylko zaszumione zdjęcia. Aby rozwiązać ten problem został wykreowany trzeci zbiór danych opisany w sekcji \ref{Zbior danych}. 
+
+\begin{figure}[!htbp]
+	\centering
+	\subfigure[HR]{\includegraphics[width=0.25\textwidth]{\ImgPath/rys/testy/shum/601crop.png}}
+	\subfigure[LR]{\includegraphics[width=0.25\textwidth]{\ImgPath/rys/testy/shum/601x2crop.png}} 
+	\subfigure[EDSR]{\includegraphics[width=0.25\textwidth]{\ImgPath/rys/testy/shum/601_x2_EDSRMSEcrop.png}}
+	\subfigure[CSNLN ($L_1$)]{\includegraphics[width=0.25\textwidth]{\ImgPath/rys/testy/shum/601_x2_CSNLNL1crop.png}}
+	\subfigure[CSNLN ($L_1$)]{\includegraphics[width=0.25\textwidth]{\ImgPath/rys/testy/shum/601_x2_CSNLNMSEcrop.png}}
+	\caption{Porównanie wizualne wycinka ze zdjęcia}
+	\label{fig:cropShum}
+\end{figure}
 \bibliographystyle{plain}
 \bibliography{bibliografia}
 %\zakonczenie  % wklejenie recenzji i opinii

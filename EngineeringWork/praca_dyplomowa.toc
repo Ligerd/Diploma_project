@@ -7,12 +7,17 @@
 \contentsline {section}{\numberline {2.4}Model CSNLN}{7}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Moduły uwagi}{8}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Mutual-Projected Fusion}{10}{subsection.2.4.2}%
-\contentsline {section}{\numberline {2.5}Model EDSR}{11}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Implementacje}{12}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Środowisko programistyczne}{12}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Zbiory danych}{13}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Model CSNLN}{14}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Benchmark}{15}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Metryki porównania jakości modeli}{15}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Szczytowy stosunek sygnału do szumu}{15}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Podobieństwo strukturalne}{16}{subsection.3.5.2}%
+\contentsline {section}{\numberline {2.5}Model EDSR}{12}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Implementacje}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Środowisko programistyczne}{14}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Zbiory danych}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Model CSNLN}{16}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Model EDSR}{17}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Metryki porównania jakości modeli}{18}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Szczytowy stosunek sygnału do szumu}{18}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Podobieństwo strukturalne}{19}{subsection.3.5.2}%
+\contentsline {chapter}{\numberline {4}Testowanie wybranych modeli}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Testowanie na zbiorze danych DIV2K}{21}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Rozmiary modeli}{24}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Usuwanie szumu z obrazów}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Zastosowanie sieci neuronowch do odszumiania obrazów}{25}{section.5.1}%
