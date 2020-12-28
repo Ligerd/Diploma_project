@@ -20,4 +20,6 @@
 \contentsline {section}{\numberline {4.1}Testowanie na zbiorze danych DIV2K}{21}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Rozmiary modeli}{24}{section.4.2}%
 \contentsline {chapter}{\numberline {5}Usuwanie szumu z obrazów}{25}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Zastosowanie sieci neuronowch do odszumiania obrazów}{25}{section.5.1}%
+\contentsline {section}{\numberline {5.1}Eksperement z użyciem zbioru tylko zasumionych obrazów}{25}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Eksperement z użyciem zbioru rozszerzonego}{27}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Podsumowanie}{31}{chapter.6}%

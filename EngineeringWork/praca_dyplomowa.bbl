@@ -1,3 +1,60 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{DIV2K}
+Eirikur Agustsson and Radu Timofte.
+\newblock Ntire 2017 challenge on single image super-resolution: Dataset and
+  study.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR) Workshops}, July 2017.
+
+\bibitem{SRCNN}
+Chao Dong, Chen~Change Loy, Kaiming He, and Xiaoou Tang.
+\newblock Image super-resolution using deep convolutional networks.
+\newblock {\em CoRR}, abs/1501.00092, 2015.
+
+\bibitem{DBPN}
+Muhammad Haris, Greg Shakhnarovich, and Norimichi Ukita.
+\newblock Deep back-projection networks for super-resolution.
+\newblock {\em CoRR}, abs/1803.02735, 2018.
+
+\bibitem{ResNet}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition, 2015.
+
+\bibitem{NIPS2012_c399862d}
+Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In F.~Pereira, C.~J.~C. Burges, L.~Bottou, and K.~Q. Weinberger,
+  editors, {\em Advances in Neural Information Processing Systems}, volume~25,
+  pages 1097--1105. Curran Associates, Inc., 2012.
+
+\bibitem{SRResNet}
+Christian Ledig, Lucas Theis, Ferenc Huszar, Jose Caballero, Andrew~P. Aitken,
+  Alykhan Tejani, Johannes Totz, Zehan Wang, and Wenzhe Shi.
+\newblock Photo-realistic single image super-resolution using a generative
+  adversarial network.
+\newblock {\em CoRR}, abs/1609.04802, 2016.
+
+\bibitem{EDSR}
+Bee Lim, Sanghyun Son, Heewon Kim, Seungjun Nah, and Kyoung~Mu Lee.
+\newblock Enhanced deep residual networks for single image super-resolution.
+\newblock {\em CoRR}, abs/1707.02921, 2017.
+
+\bibitem{Set5}
+Christine~Guillemot Marco~Bevilacqua, Aline~Roumy and Marie~Line Alberi-Morel.
+\newblock Low-complexity single-image super-resolution based on nonnegative
+  neighbor embedding.
+\newblock {\em In Proceedings of the British Machine Vision Conference}, 2012.
+
+\bibitem{CSNLN}
+Yiqun Mei, Yuchen Fan, Yuqian Zhou, Lichao Huang, Thomas~S. Huang, and Humphrey
+  Shi.
+\newblock Image super-resolution with cross-scale non-local attention and
+  exhaustive self-exemplars mining, 2020.
+
+\bibitem{NonLocalAttention}
+Xiaolong Wang, Ross~B. Girshick, Abhinav Gupta, and Kaiming He.
+\newblock Non-local neural networks.
+\newblock {\em CoRR}, abs/1711.07971, 2017.
 
 \end{thebibliography}

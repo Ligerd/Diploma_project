@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.2)  24 DEC 2020 00:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.2)  28 DEC 2020 16:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -316,76 +316,28 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip57
 )
-(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count194
-\float@exts=\toks22
-\float@box=\box47
-\@float@everytoks=\toks23
-\@floatcapt=\box48
-)
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2020/01/03 v3.4h Customizing captions (AR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 61.
-\captionmargin=\dimen155
-\captionmargin@=\dimen156
-\captionwidth=\dimen157
-\caption@tempdima=\dimen158
-\caption@indent=\dimen159
-\caption@parindent=\dimen160
-\caption@hangindent=\dimen161
-Package caption Info: Standard document class detected.
-)
-\c@caption@flags=\count195
-\c@continuedfloat=\count196
-Package caption Info: float package is loaded.
-Package caption Info: hyperref package is loaded.
-Package caption Info: subfigure package is loaded.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
-
-
-! Package subcaption Error: This package can't be used in cooperation
-(subcaption)                with the subfigure package.
-
-See the subcaption package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.62 \subcaption@CheckCompatibility
-                                   
-If you do not understand this error, please take a closer look
-at the documentation of the `subcaption' package, especially the
-section about errors.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip58
-\multirow@cntb=\count197
+\multirow@cntb=\count194
 \multirow@dima=\skip59
-\bigstrutjot=\dimen162
+\bigstrutjot=\dimen155
 )
 (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip60
-\enit@outerparindent=\dimen163
-\enit@toks=\toks24
-\enit@inbox=\box49
-\enit@count@id=\count198
-\enitdp@description=\count199
+\enit@outerparindent=\dimen156
+\enit@toks=\toks22
+\enit@inbox=\box47
+\enit@count@id=\count195
+\enitdp@description=\count196
 )
 (./prmag2017.sty
 Package `prmag2017' (ZETiIS PW Thesis) ver. 0.2 (Jan 2017)
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count266
-\l__pdf_internal_box=\box50
+\l__kernel_color_stack_int=\count197
+\l__pdf_internal_box=\box48
 )
 (./praca_dyplomowa.aux
 
@@ -397,37 +349,37 @@ LaTeX Warning: Label `FIC' multiply defined.
 )
 \openout1 = `praca_dyplomowa.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count267
-\scratchdimen=\dimen164
-\scratchbox=\box51
-\nofMPsegments=\count268
-\nofMParguments=\count269
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count270
-\MPscratchDim=\dimen165
-\MPnumerator=\count271
-\makeMPintoPDFobject=\count272
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count198
+\scratchdimen=\dimen157
+\scratchbox=\box49
+\nofMPsegments=\count199
+\nofMParguments=\count266
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count267
+\MPscratchDim=\dimen158
+\MPnumerator=\count268
+\makeMPintoPDFobject=\count269
+\everyMPtoPDFconversion=\toks24
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -437,8 +389,8 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box52
-Package hyperref Info: Link coloring OFF on input line 96.
+\AtBeginShipoutBox=\box50
+Package hyperref Info: Link coloring OFF on input line 93.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -449,75 +401,73 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count273
+\c@section@level=\count270
 )
-LaTeX Info: Redefining \ref on input line 96.
-LaTeX Info: Redefining \pageref on input line 96.
-LaTeX Info: Redefining \nameref on input line 96.
+LaTeX Info: Redefining \ref on input line 93.
+LaTeX Info: Redefining \pageref on input line 93.
+LaTeX Info: Redefining \nameref on input line 93.
 
 (./praca_dyplomowa.out) (./praca_dyplomowa.out)
 \@outlinefile=\write3
 \openout3 = `praca_dyplomowa.out'.
 
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Option `pageanchor' set `false' on input line 97.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 97
+Package hyperref Info: Option `pageanchor' set `false' on input line 94.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 94
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
-<PWHead.png, id=92, 2015.53pt x 320.19624pt>
+<PWHead.png, id=96, 2015.53pt x 320.19624pt>
 File: PWHead.png Graphic file (type png)
 <use PWHead.png>
-Package pdftex.def Info: PWHead.png  used on input line 97.
+Package pdftex.def Info: PWHead.png  used on input line 94.
 (pdftex.def)             Requested size: 455.24408pt x 72.31953pt.
 
-Overfull \hbox (31.10086pt too wide) in paragraph at lines 97--97
+Overfull \hbox (31.10086pt too wide) in paragraph at lines 94--94
 [] 
  []
 
-<inzhead.png, id=93, 1392.20125pt x 303.1325pt>
+<inzhead.png, id=97, 1392.20125pt x 303.1325pt>
 File: inzhead.png Graphic file (type png)
 <use inzhead.png>
-Package pdftex.def Info: inzhead.png  used on input line 97.
+Package pdftex.def Info: inzhead.png  used on input line 94.
 (pdftex.def)             Requested size: 455.24408pt x 99.12282pt.
 
-Overfull \hbox (31.10086pt too wide) in paragraph at lines 97--97
+Overfull \hbox (31.10086pt too wide) in paragraph at lines 94--94
  [] 
  []
 
 LaTeX Font Info:    Trying to load font information for OML+plm on input line 9
-7.
+4.
 (/usr/share/texlive/texmf-dist/tex/latex/polski/omlplm.fd
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    Trying to load font information for OMS+plsy on input line 
-97.
+94.
 
 (/usr/share/texlive/texmf-dist/tex/latex/polski/omsplsy.fd
 File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    Trying to load font information for OMX+plex on input line 
-97.
+94.
 
 (/usr/share/texlive/texmf-dist/tex/latex/polski/omxplex.fd
 File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <12> on input line 97.
+(Font)              <12> on input line 94.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <8> on input line 97.
+(Font)              <8> on input line 94.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <6> on input line 97.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 97.
+(Font)              <6> on input line 94.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 97.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -543,104 +493,104 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] [2
 
 ]
-Package hyperref Info: Option `pageanchor' set `true' on input line 97.
+Package hyperref Info: Option `pageanchor' set `true' on input line 94.
 
 Rozdzia\l  1.
 [1
 
 ] [2]
 Rozdzia\l  2.
-<./rys/sisr.png, id=161, 1371.1225pt x 494.84875pt>
+<./rys/sisr.png, id=166, 1371.1225pt x 494.84875pt>
 File: ./rys/sisr.png Graphic file (type png)
 <use ./rys/sisr.png>
-Package pdftex.def Info: ./rys/sisr.png  used on input line 126.
+Package pdftex.def Info: ./rys/sisr.png  used on input line 123.
 (pdftex.def)             Requested size: 411.33992pt x 148.45576pt.
 
-Overfull \hbox (21.33992pt too wide) in paragraph at lines 126--127
+Overfull \hbox (21.33992pt too wide) in paragraph at lines 123--124
  [] 
  []
 
 [3
 
 ]
-Overfull \hbox (1.60017pt too wide) in paragraph at lines 134--135
+Overfull \hbox (1.60017pt too wide) in paragraph at lines 131--132
 []\T1/cmr/m/n/12 Metody SR oparte na re-kon-struk-cji, cz¦-sto przyj-muj¡ za-aw
 an-so-wan¡ wcze-
  []
 
 [4 <./rys/sisr.png>]
-<./rys/CNN-konwolucja-1.png, id=175, 731.73375pt x 342.27875pt>
+<./rys/CNN-konwolucja-1.png, id=184, 731.73375pt x 342.27875pt>
 File: ./rys/CNN-konwolucja-1.png Graphic file (type png)
 <use ./rys/CNN-konwolucja-1.png>
-Package pdftex.def Info: ./rys/CNN-konwolucja-1.png  used on input line 155.
+Package pdftex.def Info: ./rys/CNN-konwolucja-1.png  used on input line 152.
 (pdftex.def)             Requested size: 292.68831pt x 136.90906pt.
  [5 <./rys/CNN-konwolucja-1.png>]
-<./rys/max-pooling.png, id=184, 602.25pt x 287.0725pt>
+<./rys/max-pooling.png, id=194, 602.25pt x 287.0725pt>
 File: ./rys/max-pooling.png Graphic file (type png)
 <use ./rys/max-pooling.png>
-Package pdftex.def Info: ./rys/max-pooling.png  used on input line 170.
+Package pdftex.def Info: ./rys/max-pooling.png  used on input line 167.
 (pdftex.def)             Requested size: 240.89572pt x 114.82695pt.
-<./rys/SRCNN.png, id=186, 1706.375pt x 708.6475pt>
+
+Overfull \hbox (0.82669pt too wide) in paragraph at lines 177--180
+\T1/cmr/m/n/12 ra-zów ni-skiej roz-dziel-czo-±ci do wy-so-kiej jest SRCNN [[]].
+ Ar-chi-tek-tur¦ SRCNN
+ []
+
+<./rys/SRCNN.png, id=197, 1706.375pt x 708.6475pt>
 File: ./rys/SRCNN.png Graphic file (type png)
 <use ./rys/SRCNN.png>
-Package pdftex.def Info: ./rys/SRCNN.png  used on input line 190.
+Package pdftex.def Info: ./rys/SRCNN.png  used on input line 187.
 (pdftex.def)             Requested size: 341.26895pt x 141.72699pt.
- [6 <./rys/max-pooling.png>] [7 <./rys/SRCNN.png>]
-<./rys/CSNLN.png, id=207, 744.7825pt x 323.2075pt>
+[6 <./rys/max-pooling.png>] [7 <./rys/SRCNN.png>]
+<./rys/CSNLN.png, id=221, 744.7825pt x 323.2075pt>
 File: ./rys/CSNLN.png Graphic file (type png)
 <use ./rys/CSNLN.png>
-Package pdftex.def Info: ./rys/CSNLN.png  used on input line 214.
+Package pdftex.def Info: ./rys/CSNLN.png  used on input line 211.
 (pdftex.def)             Requested size: 446.87296pt x 193.926pt.
 
-Overfull \hbox (56.87296pt too wide) in paragraph at lines 214--215
+Overfull \hbox (56.87296pt too wide) in paragraph at lines 211--212
  [] 
  []
 
 [8 <./rys/CSNLN.png>]
-<./rys/Attention.png, id=221, 257.88345pt x 201.75375pt>
+<./rys/Attention.png, id=237, 257.88345pt x 201.75375pt>
 File: ./rys/Attention.png Graphic file (type png)
 <use ./rys/Attention.png>
-Package pdftex.def Info: ./rys/Attention.png  used on input line 249.
+Package pdftex.def Info: ./rys/Attention.png  used on input line 246.
 (pdftex.def)             Requested size: 309.45859pt x 242.10327pt.
  [9 <./rys/Attention.png>]
-<./rys/CS-NL.png, id=232, 654.445pt x 331.2375pt>
+<./rys/CS-NL.png, id=248, 654.445pt x 331.2375pt>
 File: ./rys/CS-NL.png Graphic file (type png)
 <use ./rys/CS-NL.png>
-Package pdftex.def Info: ./rys/CS-NL.png  used on input line 263.
+Package pdftex.def Info: ./rys/CS-NL.png  used on input line 260.
 (pdftex.def)             Requested size: 327.2217pt x 165.61833pt.
-<./rys/fusion.png, id=234, 613.29124pt x 313.17pt>
+<./rys/fusion.png, id=250, 613.29124pt x 313.17pt>
 File: ./rys/fusion.png Graphic file (type png)
 <use ./rys/fusion.png>
-Package pdftex.def Info: ./rys/fusion.png  used on input line 291.
+Package pdftex.def Info: ./rys/fusion.png  used on input line 288.
 (pdftex.def)             Requested size: 306.64487pt x 156.58461pt.
- [10 <./rys/CS-NL.png>]
-Overfull \hbox (22.44423pt too wide) in paragraph at lines 297--298
-[]\T1/cmr/m/n/12 Wzorój¡c si¦ ar-ty-ku-ªem DBPN, au-to-rzy za-dop-to-wali po-de
-j-±cie back-projection
- []
-
-[11 <./rys/fusion.png>]
-<./rys/EDSR_Architecture.png, id=252, 702.625pt x 471.7625pt>
+ [10 <./rys/CS-NL.png>] [11 <./rys/fusion.png>]
+<./rys/EDSR_Architecture.png, id=272, 702.625pt x 471.7625pt>
 File: ./rys/EDSR_Architecture.png Graphic file (type png)
 <use ./rys/EDSR_Architecture.png>
-Package pdftex.def Info: ./rys/EDSR_Architecture.png  used on input line 318.
+Package pdftex.def Info: ./rys/EDSR_Architecture.png  used on input line 315.
 (pdftex.def)             Requested size: 351.31163pt x 235.88066pt.
  [12 <./rys/EDSR_Architecture.png (PNG copy)>]
-<./rys/EDSRresudualbloc.png, id=260, 462.72874pt x 343.2825pt>
+<./rys/EDSRresudualbloc.png, id=283, 462.72874pt x 343.2825pt>
 File: ./rys/EDSRresudualbloc.png Graphic file (type png)
 <use ./rys/EDSRresudualbloc.png>
-Package pdftex.def Info: ./rys/EDSRresudualbloc.png  used on input line 330.
+Package pdftex.def Info: ./rys/EDSRresudualbloc.png  used on input line 327.
 (pdftex.def)             Requested size: 277.63939pt x 205.97107pt.
  [13 <./rys/EDSRresudualbloc.png>]
 Rozdzia\l  3.
 
-Overfull \hbox (5.66434pt too wide) in paragraph at lines 348--349
+Overfull \hbox (5.66434pt too wide) in paragraph at lines 345--346
 []\T1/cmr/m/n/12 Jako bi-blio-teka do ucze-nia ma-szy-no-wego zo-staªa wy-brana
  \T1/cmr/bx/n/12 Py-Torch\T1/cmr/m/n/12 . Gªów-
  []
 
 
-Overfull \hbox (23.126pt too wide) in paragraph at lines 350--351
+Overfull \hbox (23.126pt too wide) in paragraph at lines 347--348
 []\T1/cmr/m/n/12 Do two-rze-nia wªa-snych da-ta-se-tów wy-ko-rzy-stano bi-blio-
 teki \T1/cmr/bx/n/12 Pil-low \T1/cmr/m/n/12 i \T1/cmr/bx/n/12 OpenCV\T1/cmr/m/n
 /12 .
@@ -653,34 +603,34 @@ Underfull \vbox (badness 2073) has occurred while \output is active []
 
 ]
 [15]
-<./rys/relu.png, id=279, 1029.8475pt x 468.75125pt>
+<./rys/relu.png, id=306, 1029.8475pt x 468.75125pt>
 File: ./rys/relu.png Graphic file (type png)
 <use ./rys/relu.png>
-Package pdftex.def Info: ./rys/relu.png  used on input line 394.
+Package pdftex.def Info: ./rys/relu.png  used on input line 391.
 (pdftex.def)             Requested size: 308.95663pt x 140.62645pt.
  [16 <./rys/relu.png>]
-<./rys/CSNLNtrain_loss_L1.pdf, id=288, 462.52798pt x 346.89601pt>
+<./rys/CSNLNtrain_loss_L1.pdf, id=316, 462.52798pt x 346.89601pt>
 File: ./rys/CSNLNtrain_loss_L1.pdf Graphic file (type pdf)
 <use ./rys/CSNLNtrain_loss_L1.pdf>
-Package pdftex.def Info: ./rys/CSNLNtrain_loss_L1.pdf  used on input line 409.
+Package pdftex.def Info: ./rys/CSNLNtrain_loss_L1.pdf  used on input line 406.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
-<./rys/CSNLNtest_loss_L1.pdf, id=289, 462.52798pt x 346.89601pt>
+<./rys/CSNLNtest_loss_L1.pdf, id=317, 462.52798pt x 346.89601pt>
 File: ./rys/CSNLNtest_loss_L1.pdf Graphic file (type pdf)
 <use ./rys/CSNLNtest_loss_L1.pdf>
-Package pdftex.def Info: ./rys/CSNLNtest_loss_L1.pdf  used on input line 410.
+Package pdftex.def Info: ./rys/CSNLNtest_loss_L1.pdf  used on input line 407.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
-<./rys/EDSRtrain_loss_L1.pdf, id=292, 462.52798pt x 346.89601pt>
+<./rys/EDSRtrain_loss_L1.pdf, id=321, 462.52798pt x 346.89601pt>
 File: ./rys/EDSRtrain_loss_L1.pdf Graphic file (type pdf)
 <use ./rys/EDSRtrain_loss_L1.pdf>
-Package pdftex.def Info: ./rys/EDSRtrain_loss_L1.pdf  used on input line 427.
+Package pdftex.def Info: ./rys/EDSRtrain_loss_L1.pdf  used on input line 424.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
-<./rys/EDSRtest_loss_L1.pdf, id=293, 462.52798pt x 346.89601pt>
+<./rys/EDSRtest_loss_L1.pdf, id=322, 462.52798pt x 346.89601pt>
 File: ./rys/EDSRtest_loss_L1.pdf Graphic file (type pdf)
 <use ./rys/EDSRtest_loss_L1.pdf>
-Package pdftex.def Info: ./rys/EDSRtest_loss_L1.pdf  used on input line 428.
+Package pdftex.def Info: ./rys/EDSRtest_loss_L1.pdf  used on input line 425.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
 
-Underfull \vbox (badness 1789) has occurred while \output is active []
+Underfull \vbox (badness 2119) has occurred while \output is active []
 
  [17 <./rys/CSNLNtrain_loss_L1.pdf> <./rys/CSNLNtest_loss_L1.pdf
 
@@ -695,49 +645,49 @@ Rozdzia\l  4.
 [21
 
 ]
-<./rys/testy/DIV2k/babyShowReactangle.png, id=426, 513.92pt x 513.92pt>
+<./rys/testy/DIV2k/babyShowReactangle.png, id=457, 513.92pt x 513.92pt>
 File: ./rys/testy/DIV2k/babyShowReactangle.png Graphic file (type png)
 <use ./rys/testy/DIV2k/babyShowReactangle.png>
 Package pdftex.def Info: ./rys/testy/DIV2k/babyShowReactangle.png  used on inpu
-t line 528.
+t line 526.
 (pdftex.def)             Requested size: 175.49881pt x 175.49898pt.
-<./rys/testy/DIV2k/babyCrop.png, id=427, 160.6pt x 225.84375pt>
+<./rys/testy/DIV2k/babyCrop.png, id=458, 160.6pt x 225.84375pt>
 File: ./rys/testy/DIV2k/babyCrop.png Graphic file (type png)
 <use ./rys/testy/DIV2k/babyCrop.png>
-Package pdftex.def Info: ./rys/testy/DIV2k/babyCrop.png  used on input line 529
+Package pdftex.def Info: ./rys/testy/DIV2k/babyCrop.png  used on input line 527
 .
 (pdftex.def)             Requested size: 97.5pt x 137.11316pt.
-<./rys/testy/DIV2k/Bilenierbaby_x2_SRCrop.png, id=428, 160.6pt x 225.84375pt>
+<./rys/testy/DIV2k/Bilenierbaby_x2_SRCrop.png, id=459, 160.6pt x 225.84375pt>
 File: ./rys/testy/DIV2k/Bilenierbaby_x2_SRCrop.png Graphic file (type png)
 <use ./rys/testy/DIV2k/Bilenierbaby_x2_SRCrop.png>
 Package pdftex.def Info: ./rys/testy/DIV2k/Bilenierbaby_x2_SRCrop.png  used on 
-input line 530.
+input line 528.
 (pdftex.def)             Requested size: 97.5pt x 137.11316pt.
-<./rys/testy/DIV2k/baby_x2_SRCropBicubic.png, id=429, 160.6pt x 225.84375pt>
+<./rys/testy/DIV2k/baby_x2_SRCropBicubic.png, id=460, 160.6pt x 225.84375pt>
 File: ./rys/testy/DIV2k/baby_x2_SRCropBicubic.png Graphic file (type png)
 <use ./rys/testy/DIV2k/baby_x2_SRCropBicubic.png>
 Package pdftex.def Info: ./rys/testy/DIV2k/baby_x2_SRCropBicubic.png  used on i
-nput line 531.
+nput line 529.
 (pdftex.def)             Requested size: 105.30167pt x 148.08553pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 531--531
+Underfull \hbox (badness 10000) in paragraph at lines 529--529
 []\T1/cmr/m/n/10 (d) In-ter-po-la-cja dwu-
  []
 
-<./rys/testy/DIV2k/EDSRbabyCrop_x2.png, id=430, 160.6pt x 225.84375pt>
+<./rys/testy/DIV2k/EDSRbabyCrop_x2.png, id=461, 160.6pt x 225.84375pt>
 File: ./rys/testy/DIV2k/EDSRbabyCrop_x2.png Graphic file (type png)
 <use ./rys/testy/DIV2k/EDSRbabyCrop_x2.png>
 Package pdftex.def Info: ./rys/testy/DIV2k/EDSRbabyCrop_x2.png  used on input l
-ine 532.
+ine 530.
 (pdftex.def)             Requested size: 105.30167pt x 148.08553pt.
-<./rys/testy/DIV2k/CSNLNbabyCrop_x2.png, id=431, 160.6pt x 225.84375pt>
+<./rys/testy/DIV2k/CSNLNbabyCrop_x2.png, id=462, 160.6pt x 225.84375pt>
 File: ./rys/testy/DIV2k/CSNLNbabyCrop_x2.png Graphic file (type png)
 <use ./rys/testy/DIV2k/CSNLNbabyCrop_x2.png>
 Package pdftex.def Info: ./rys/testy/DIV2k/CSNLNbabyCrop_x2.png  used on input 
-line 533.
+line 531.
 (pdftex.def)             Requested size: 105.30167pt x 148.08553pt.
 
-Overfull \hbox (1.08545pt too wide) in paragraph at lines 538--539
+Overfull \hbox (1.08545pt too wide) in paragraph at lines 536--537
 []\T1/cmr/m/n/12 Zdecydowanie naj-gor-szy wy-nik byª uzy-skany przy u»y-ciu in-
 ter-po-la-cji dwu-
  []
@@ -751,76 +701,180 @@ Rozdzia\l  5.
 [25
 
 ]
-<./rys/testy/shum/601crop.png, id=466, 207.77625pt x 175.65625pt>
+<./rys/testy/shum/601crop.png, id=501, 207.77625pt x 175.65625pt>
 File: ./rys/testy/shum/601crop.png Graphic file (type png)
 <use ./rys/testy/shum/601crop.png>
 Package pdftex.def Info: ./rys/testy/shum/601crop.png  used on input line 600.
-(pdftex.def)             Requested size: 97.5pt x 82.42711pt.
-<./rys/testy/shum/601x2crop.png, id=467, 103.38625pt x 88.33pt>
+(pdftex.def)             Requested size: 105.30167pt x 89.0233pt.
+<./rys/testy/shum/601x2crop.png, id=502, 103.38625pt x 88.33pt>
 File: ./rys/testy/shum/601x2crop.png Graphic file (type png)
 <use ./rys/testy/shum/601x2crop.png>
 Package pdftex.def Info: ./rys/testy/shum/601x2crop.png  used on input line 601
 .
-(pdftex.def)             Requested size: 97.5pt x 83.30244pt.
-<./rys/testy/shum/601_x2_EDSRMSEcrop.png, id=468, 207.77625pt x 175.65625pt>
+(pdftex.def)             Requested size: 105.30167pt x 89.9687pt.
+<./rys/testy/shum/601_x2_EDSRMSEcrop.png, id=503, 207.77625pt x 175.65625pt>
 File: ./rys/testy/shum/601_x2_EDSRMSEcrop.png Graphic file (type png)
 <use ./rys/testy/shum/601_x2_EDSRMSEcrop.png>
 Package pdftex.def Info: ./rys/testy/shum/601_x2_EDSRMSEcrop.png  used on input
  line 602.
 (pdftex.def)             Requested size: 97.5pt x 82.42711pt.
-<./rys/testy/shum/601_x2_CSNLNL1crop.png, id=469, 207.77625pt x 175.65625pt>
+<./rys/testy/shum/601_x2_CSNLNL1crop.png, id=504, 207.77625pt x 175.65625pt>
 File: ./rys/testy/shum/601_x2_CSNLNL1crop.png Graphic file (type png)
 <use ./rys/testy/shum/601_x2_CSNLNL1crop.png>
 Package pdftex.def Info: ./rys/testy/shum/601_x2_CSNLNL1crop.png  used on input
  line 603.
-(pdftex.def)             Requested size: 97.5pt x 82.42711pt.
+(pdftex.def)             Requested size: 105.30167pt x 89.0233pt.
 LaTeX Font Info:    External font `plex10' loaded for size
 (Font)              <10> on input line 603.
 LaTeX Font Info:    External font `plex10' loaded for size
 (Font)              <7> on input line 603.
 LaTeX Font Info:    External font `plex10' loaded for size
 (Font)              <5> on input line 603.
-<./rys/testy/shum/601_x2_CSNLNMSEcrop.png, id=470, 207.77625pt x 175.65625pt>
+<./rys/testy/shum/601_x2_CSNLNMSEcrop.png, id=505, 207.77625pt x 175.65625pt>
 File: ./rys/testy/shum/601_x2_CSNLNMSEcrop.png Graphic file (type png)
 <use ./rys/testy/shum/601_x2_CSNLNMSEcrop.png>
 Package pdftex.def Info: ./rys/testy/shum/601_x2_CSNLNMSEcrop.png  used on inpu
 t line 604.
-(pdftex.def)             Requested size: 97.5pt x 82.42711pt.
- (./praca_dyplomowa.bbl [26 <./rys/testy/shum/601crop.png (PNG copy)> <./rys/te
-sty/shum/601x2crop.png (PNG copy)> <./rys/testy/shum/601_x2_EDSRMSEcrop.png (PN
-G copy)> <./rys/testy/shum/601_x2_CSNLNL1crop.png (PNG copy)> <./rys/testy/shum
-/601_x2_CSNLNMSEcrop.png (PNG copy)>]
-
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
+(pdftex.def)             Requested size: 105.30167pt x 89.0233pt.
+<./rys/testy/shumAndNormal/751CropReactangle.png, id=506, 4175.6pt x 3131.7pt>
+File: ./rys/testy/shumAndNormal/751CropReactangle.png Graphic file (type png)
+<use ./rys/testy/shumAndNormal/751CropReactangle.png>
+Package pdftex.def Info: ./rys/testy/shumAndNormal/751CropReactangle.png  used 
+on input line 611.
+(pdftex.def)             Requested size: 312.00119pt x 233.95943pt.
+ [26 <./rys/testy/shum/601crop.png (PNG copy)> <./rys/testy/shum/601x2crop.png 
+(PNG copy)> <./rys/testy/shum/601_x2_EDSRMSEcrop.png (PNG copy)> <./rys/testy/s
+hum/601_x2_CSNLNL1crop.png (PNG copy)> <./rys/testy/shum/601_x2_CSNLNMSEcrop.pn
+g (PNG copy)>] [27 <./rys/testy/shumAndNormal/751CropReactangle.png (PNG copy)>
+]
+File: ./rys/testy/shum/601crop.png Graphic file (type png)
+<use ./rys/testy/shum/601crop.png>
+Package pdftex.def Info: ./rys/testy/shum/601crop.png  used on input line 671.
+(pdftex.def)             Requested size: 105.30167pt x 89.0233pt.
+File: ./rys/testy/shum/601x2crop.png Graphic file (type png)
+<use ./rys/testy/shum/601x2crop.png>
+Package pdftex.def Info: ./rys/testy/shum/601x2crop.png  used on input line 672
+.
+(pdftex.def)             Requested size: 105.30167pt x 89.9687pt.
+<./rys/testy/shumAndNormal/752crop_x2_SREDSR.png, id=538, 207.77625pt x 175.656
+25pt>
+File: ./rys/testy/shumAndNormal/752crop_x2_SREDSR.png Graphic file (type png)
+<use ./rys/testy/shumAndNormal/752crop_x2_SREDSR.png>
+Package pdftex.def Info: ./rys/testy/shumAndNormal/752crop_x2_SREDSR.png  used 
+on input line 673.
+(pdftex.def)             Requested size: 105.30167pt x 89.0233pt.
+<./rys/testy/shumAndNormal/752crop_x2_SRCSNLNL1.png, id=539, 207.77625pt x 175.
+65625pt>
+File: ./rys/testy/shumAndNormal/752crop_x2_SRCSNLNL1.png Graphic file (type png
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 612.
- [27
+<use ./rys/testy/shumAndNormal/752crop_x2_SRCSNLNL1.png>
+Package pdftex.def Info: ./rys/testy/shumAndNormal/752crop_x2_SRCSNLNL1.png  us
+ed on input line 674.
+(pdftex.def)             Requested size: 105.30167pt x 89.0233pt.
+<./rys/testy/shumAndNormal/752crop_x2_SRCSNLNMSE.png, id=540, 207.77625pt x 175
+.65625pt>
+File: ./rys/testy/shumAndNormal/752crop_x2_SRCSNLNMSE.png Graphic file (type pn
+g)
+<use ./rys/testy/shumAndNormal/752crop_x2_SRCSNLNMSE.png>
+Package pdftex.def Info: ./rys/testy/shumAndNormal/752crop_x2_SRCSNLNMSE.png  u
+sed on input line 675.
+(pdftex.def)             Requested size: 105.30167pt x 89.0233pt.
+File: ./rys/testy/shum/601crop.png Graphic file (type png)
+<use ./rys/testy/shum/601crop.png>
+Package pdftex.def Info: ./rys/testy/shum/601crop.png  used on input line 683.
+(pdftex.def)             Requested size: 105.30167pt x 89.0233pt.
+<./rys/testy/shumAndNormal/751x3crop.png, id=541, 69.25874pt x 58.2175pt>
+File: ./rys/testy/shumAndNormal/751x3crop.png Graphic file (type png)
+<use ./rys/testy/shumAndNormal/751x3crop.png>
+Package pdftex.def Info: ./rys/testy/shumAndNormal/751x3crop.png  used on input
+ line 684.
+(pdftex.def)             Requested size: 105.30167pt x 88.51459pt.
+<./rys/testy/shumAndNormal/CSNLNL1752crop_x3_SR.png, id=542, 207.77625pt x 175.
+65625pt>
+File: ./rys/testy/shumAndNormal/CSNLNL1752crop_x3_SR.png Graphic file (type png
+)
+<use ./rys/testy/shumAndNormal/CSNLNL1752crop_x3_SR.png>
+Package pdftex.def Info: ./rys/testy/shumAndNormal/CSNLNL1752crop_x3_SR.png  us
+ed on input line 685.
+(pdftex.def)             Requested size: 105.30167pt x 89.0233pt.
+File: ./rys/testy/shumAndNormal/CSNLNL1752crop_x3_SR.png Graphic file (type png
+)
+<use ./rys/testy/shumAndNormal/CSNLNL1752crop_x3_SR.png>
+Package pdftex.def Info: ./rys/testy/shumAndNormal/CSNLNL1752crop_x3_SR.png  us
+ed on input line 686.
+(pdftex.def)             Requested size: 105.30167pt x 89.0233pt.
+<./rys/testy/shumAndNormal/CSNLNMSE752crop_x3_SR.png, id=543, 207.77625pt x 175
+.65625pt>
+File: ./rys/testy/shumAndNormal/CSNLNMSE752crop_x3_SR.png Graphic file (type pn
+g)
+<use ./rys/testy/shumAndNormal/CSNLNMSE752crop_x3_SR.png>
+Package pdftex.def Info: ./rys/testy/shumAndNormal/CSNLNMSE752crop_x3_SR.png  u
+sed on input line 687.
+(pdftex.def)             Requested size: 105.30167pt x 89.0233pt.
+ [28] [29 <./rys/testy/shumAndNormal/752crop_x2_SREDSR.png (PNG copy)> <./rys/t
+esty/shumAndNormal/752crop_x2_SRCSNLNL1.png (PNG copy)> <./rys/testy/shumAndNor
+mal/752crop_x2_SRCSNLNMSE.png (PNG copy)> <./rys/testy/shumAndNormal/751x3crop.
+png (PNG copy)> <./rys/testy/shumAndNormal/CSNLNL1752crop_x3_SR.png (PNG copy)>
+ <./rys/testy/shumAndNormal/CSNLNMSE752crop_x3_SR.png (PNG copy)>]
+<./rys/testy/shumAndNormal/baby_x2_SRCSRNLSHUM.png, id=566, 513.92pt x 513.92pt
+>
+File: ./rys/testy/shumAndNormal/baby_x2_SRCSRNLSHUM.png Graphic file (type png)
+
+<use ./rys/testy/shumAndNormal/baby_x2_SRCSRNLSHUM.png>
+Package pdftex.def Info: ./rys/testy/shumAndNormal/baby_x2_SRCSRNLSHUM.png  use
+d on input line 695.
+(pdftex.def)             Requested size: 155.99762pt x 155.99648pt.
+<./rys/testy/shumAndNormal/baby_x2_SRCSNLN.png, id=567, 513.92pt x 513.92pt>
+File: ./rys/testy/shumAndNormal/baby_x2_SRCSNLN.png Graphic file (type png)
+<use ./rys/testy/shumAndNormal/baby_x2_SRCSNLN.png>
+Package pdftex.def Info: ./rys/testy/shumAndNormal/baby_x2_SRCSNLN.png  used on
+ input line 696.
+(pdftex.def)             Requested size: 155.99762pt x 155.99648pt.
+
+[30 <./rys/testy/shumAndNormal/baby_x2_SRCSRNLSHUM.png (PNG copy)> <./rys/testy
+/shumAndNormal/baby_x2_SRCSNLN.png (PNG copy)>]
+Rozdzia\l  6.
+(./praca_dyplomowa.bbl [31
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 612.
- (./praca_dyplomowa.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 612.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 612.
-Package rerunfilecheck Info: File `praca_dyplomowa.out' has not changed.
-(rerunfilecheck)             Checksum: 7AF4BAEBB52EBDDC0BC9E8B92FDAED4F;1529.
+Underfull \hbox (badness 1275) in paragraph at lines 11--14
+[]\T1/cmr/m/n/12 Chao Dong, Chen Change Loy, Ka-iming He, and Xia-oou Tang.
+ []
 
+[32
+
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 709.
+ [33]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 709.
+ (./praca_dyplomowa.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 709.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 709.
+
+
+Package rerunfilecheck Warning: File `praca_dyplomowa.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `praca_dyplomowa.out':
+(rerunfilecheck)             Before: 328B3C722DEB89850136120297DEA274;1620
+(rerunfilecheck)             After:  03DCAB83190C149AD40DC7BE93C73CB6;1668.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 612.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 709.
  ) 
 Here is how much of TeX's memory you used:
- 8671 strings out of 481239
- 135270 string characters out of 5920377
- 406989 words of memory out of 5000000
- 23596 multiletter control sequences out of 15000+600000
- 558198 words of font info for 72 fonts, out of 8000000 for 9000
+ 7662 strings out of 481239
+ 117965 string characters out of 5920377
+ 390163 words of memory out of 5000000
+ 22552 multiletter control sequences out of 15000+600000
+ 558882 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,42p,778b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{/usr/share/texliv
-e/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texlive/texmf-dist/fonts/e
-nc/dvips/pl/plms.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc
+ 34i,10n,29p,841b,437s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texliv
+e/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{/usr/share/texlive/texmf-dist/fonts/e
+nc/dvips/pl/plmi.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc
 }{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plme.enc}{/usr/share/texmf/f
 onts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/e
 nc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/pl/plex1
@@ -835,11 +889,12 @@ per/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></u
 sr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts
 /type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-sup
 er/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on praca_dyplomowa.pdf (35 pages, 2493664 bytes).
+r/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on praca_dyplomowa.pdf (41 pages, 15162649 bytes).
 PDF statistics:
- 572 PDF objects out of 1000 (max. 8388607)
- 409 compressed objects within 5 object streams
- 102 named destinations out of 1000 (max. 500000)
- 317 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 686 PDF objects out of 1000 (max. 8388607)
+ 506 compressed objects within 6 object streams
+ 138 named destinations out of 1000 (max. 500000)
+ 370 words of extra memory for PDF output out of 10000 (max. 10000000)
 

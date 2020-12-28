@@ -19,4 +19,6 @@
 \BOOKMARK [1][-]{section.4.1}{Testowanie na zbiorze danych DIV2K}{chapter.4}% 19
 \BOOKMARK [1][-]{section.4.2}{Rozmiary modeli}{chapter.4}% 20
 \BOOKMARK [0][-]{chapter.5}{Usuwanie szumu z obraz\363w}{}% 21
-\BOOKMARK [1][-]{section.5.1}{Zastosowanie sieci neuronowch do odszumiania obraz\363w}{chapter.5}% 22
+\BOOKMARK [1][-]{section.5.1}{Eksperement z uzyciem zbioru tylko zasumionych obraz\363w}{chapter.5}% 22
+\BOOKMARK [1][-]{section.5.2}{Eksperement z uzyciem zbioru rozszerzonego}{chapter.5}% 23
+\BOOKMARK [0][-]{chapter.6}{Podsumowanie}{}% 24

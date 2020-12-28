@@ -3,49 +3,54 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: praca_dyplomowa.aux
 The style file: plain.bst
 Database file #1: bibliografia.bib
-Warning--I didn't find a database entry for "PrisonersProblem"
-Warning--I didn't find a database entry for "schematKomunikacjiPrzypis"
-Warning--I didn't find a database entry for "SweetyPresentation"
-Warning--I didn't find a database entry for "RFC2960"
-You've used 0 entries,
+Repeated entry---line 267 of file bibliografia.bib
+ : @inproceedings{Set5
+ :                    ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "einstein"
+Name 1 in "Marco Bevilacqua, Aline Roumy, Christine Guillemot, and Marie Line Alberi-Morel" has a comma at the end for entry Set5
+while executing---line 1049 of file plain.bst
+Name 1 in "Marco Bevilacqua, Aline Roumy, Christine Guillemot, and Marie Line Alberi-Morel" has a comma at the end for entry Set5
+while executing---line 1090 of file plain.bst
+You've used 10 entries,
             2118 wiz_defined-function locations,
-            505 strings with 4147 characters,
-and the built_in function-call counts, 18 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            557 strings with 5933 characters,
+and the built_in function-call counts, 3486 in all, are:
+= -- 309
+> -- 254
+< -- 2
++ -- 98
+- -- 88
+* -- 250
+:= -- 623
+add.period$ -- 29
+call.type$ -- 10
+change.case$ -- 72
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 10
+duplicate$ -- 113
+empty$ -- 220
+format.name$ -- 88
+if$ -- 697
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 10
+missing$ -- 8
+newline$ -- 51
+num.names$ -- 22
+pop$ -- 77
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 62
 quote$ -- 0
-skip$ -- 1
+skip$ -- 94
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 90
+swap$ -- 24
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 40
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
-(There were 4 warnings)
+while$ -- 24
+width$ -- 12
+write$ -- 106
+(There were 3 error messages)
